@@ -1,0 +1,26 @@
+<div class="">
+
+<% @notes.each do |note| %>
+
+<div class="notes_by_photo">
+
+      <%=link_to image_tag(note.photo, {:style=>"border-radius:5px; width:100%; height:100%;"}) %>
+
+      <div class="under_notes_by_photo">
+
+        <p><strong>
+          <%=link_to note.title, note_path(note), :style=>"color:white;" %>
+        </strong></p>
+
+      </div>
+
+      <div class="note_time">
+      <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note), :style=>"color:white;" %>
+      </div>
+        
+
+</div>
+
+<% end %>
+
+</div>

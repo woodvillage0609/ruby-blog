@@ -1,0 +1,21 @@
+<% @notes.each do |note| %>
+
+<div class="note-index">
+      <ul>
+        <li><h2><strong><%= note.title %></strong></h2></li>
+
+        <p><%= note.created_at.to_formatted_s(:without_second) %></p>
+
+        <li style="padding-top:20px; font-size:16px;">
+        <%= simple_format(note.content) %>
+        </li>
+
+        <td><%= link_to 'Show', note %></td> |
+        <td><%= link_to 'Edit', edit_note_path(note) %></td> |
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </ul>
+<br>
+
+</div>
+
+<% end %>

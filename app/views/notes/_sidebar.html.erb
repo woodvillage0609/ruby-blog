@@ -1,0 +1,42 @@
+<div class="note-sidebar">
+
+<p><span class="fa fa-tag"> Recent Notes</span></p>
+<% @notes_recent.each do |note| %>
+<li style="padding-left:15px;"><%= link_to note.title, note %></li>
+<% end %>
+
+<br>
+
+<p><span class="fa fa-tag"> Archives</span></p>
+<% @notes_by_month.each do |month, notes| %>
+<li style="padding-left:15px;">
+<%= link_to "#{month.strftime('%B %Y')} ( #{notes.count} )", notes_by_month_path(:year=> month.year, :month => month.month) %>
+</li>
+<% end %>
+
+<br>
+
+<p><span class="fa fa-tag"> Category</span></p>
+<% @categories.each do |category| %>
+<li style="padding-left:15px;">
+<%=link_to category.name, notes_by_category_note_path(category) %>
+</li>
+<% end %>
+</br>
+
+
+<% if user_signed_in? %>
+
+<div class="user_only_create">
+<p><%= link_to 'New Note', new_note_path %></p>
+<p><%= link_to 'Create Category', categories_path %></p>
+<p><%= link_to 'Log out', destroy_user_session_path, method: :delete %></p>
+</div>
+
+<% else %>
+
+<p style="padding-left:15px;"><%= link_to 'Log in', new_user_session_path %></p>
+
+<% end %>
+
+</div>

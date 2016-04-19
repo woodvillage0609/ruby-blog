@@ -1,0 +1,152 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+li {
+	list-style:none;
+	margin:0px;
+    list-style-position:none;
+}
+
+ul{
+	padding:0px;
+	margin:0px;
+}
+
+a {
+	text-decoration:none;
+}
+
+body {
+	background-color:#F0F0F0;
+}
+
+/* note header */
+
+.header {
+	background-image:url(http://www.wallpaper-wallpaper.com/wp-content/uploads/images/art-illustration-paint/art-illustration-paint-photo-wallpaper-desktop-32.jpg);
+	background-size:cover;
+	width:100%;
+	height:400px;
+	position:relative;
+}
+
+.header::before {
+	z-index:1;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color:rgba(0,0,0,0.5);
+}
+
+.under-header {
+    position:absolute;
+    width:100%;
+	color:white;
+	text-align:center;
+	padding-top:150px;
+	z-index:2;
+}
+
+/* note new */
+
+.note-create {
+	width:90%;
+	margin:0 auto;
+	padding-bottom:100px;
+}
+
+/* note index */
+
+.note-list {
+	padding:0px 40px 0px 40px;
+	border-bottom:1px dotted #808080;
+	letter-spacing:3px;
+	line-height:200%;
+}
+
+.note-list p {
+	margin-bottom:2em;
+}
+
+.note-sidebar {
+	padding-top:20px;
+}
+
+/* note show */
+
+.note-show {
+	padding:20px 200px;
+	border-bottom:1px dotted #808080;
+	letter-spacing:3px;
+	line-height:200%;
+	font-size:16px;
+}
+
+.note-show p {
+	margin-bottom:2em;
+}
+
+/* note_by_photo */
+
+.notes_by_photo {
+	width:30%;
+	border:1px solid #808080;
+	border-radius:5px;
+	height:220px;
+	float:left;
+	margin:20px 15px 20px 15px;
+	position:relative;
+}
+
+.notes_by_photo::before {
+	z-index:1;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color:rgba(0,0,0,0.3);
+}
+
+.under_notes_by_photo {
+	position:absolute;
+    width:100%;
+	color:white;
+	text-align:center;
+	top:0px;
+	left:0px;
+	line-height:220px;
+	z-index:2;
+	font-size:20px;
+}
+
+.note_time {
+	position:absolute; 
+	right:10px; 
+	bottom:5px;
+	z-index:2;
+}
+
+/* log in sign up */
+
+.login-form {
+	width:60%;
+	margin:0 auto;
+	padding-bottom:100px;
+}
+
+/* note sidebar */
+
+.user_only_create {
+	padding-left:15px;
+}
+
+
+
+

@@ -1,0 +1,28 @@
+
+<% @notes.each do |note| %>
+
+<div class="note-list">
+      <ul>
+        <li><h2><strong>
+        <%=link_to note.title, note_path(note), :style=>"color:black;" %>
+        </strong></h2>
+
+      <%= note.created_at.to_formatted_s(:without_second) %>
+      </li>
+
+      <li><%= image_tag(note.photo, {:style=>"border-radius:5px; width:100%; height:70%;"}) %></li>
+
+        <li style="padding-top:20px; font-size:16px;">
+        <p><%= simple_format(note.content) %></p>
+        </li>
+
+<% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td> |
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+
+       </ul><br>
+
+</div>
+
+<% end %>
