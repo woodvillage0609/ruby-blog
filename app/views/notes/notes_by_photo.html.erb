@@ -9,13 +9,13 @@
       <div class="under_notes_by_photo">
 
         <p><strong>
-          <%=link_to note.title, note_path(note), :style=>"color:white;" %>
+          <%=link_to note.title, note_path(note), class: "white" %>
         </strong></p>
 
       </div>
 
       <div class="note_time">
-      <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note), :style=>"color:white;" %>
+      <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note), class: "white" %>
       </div>
         
 

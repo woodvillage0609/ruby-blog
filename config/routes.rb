@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :articles
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users, controllers: { registrations: "registrations"}
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   end
 end
 
+  resources :users, only:[:show, :index, :edit, :update]
 
   get 'notes/notes_by_month/:year/:month' => 'notes#notes_by_month', as: 'notes_by_month'
 
