@@ -1,0 +1,27 @@
+<div class="user-show">
+
+<div class=row>
+
+<% @users.each do |user| %>
+
+<div class="col-lg-4" style="padding:0px;">
+
+<li><%= image_tag(user.image, {:style=>"width:90%; border-radius:5px;"}) %></li>
+
+</div>
+
+<div class="col-lg-8" style="border:1px dotted #808080; border-radius:5px;">
+
+<ul>
+	<li style="font-size:20px; padding-top:10px;"><strong><%= user.name %></strong></li>
+	<li><%= simple_format(user.profile) %></li>
+	<li>連絡先アドレス：<strong><%= user.email %></strong></li>
+</ul>
+
+</div>
+
+<% end %>
+
+</div>
+
+</div>

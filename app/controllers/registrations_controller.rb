@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
 
-	before_action :one_user_registered?
+	before_action  :one_user_registered?
 
 	def new
 	end

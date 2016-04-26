@@ -12,8 +12,24 @@ ul{
 	margin:0px;
 }
 
+
 a {
 	text-decoration:none;
+	color:#666666;
+	transition:0.7s;
+}
+
+a:hover {
+	text-decoration:none;
+	color:#00F9A9;
+}
+
+.white {
+	color:white;
+}
+
+.black {
+	color:black;
 }
 
 body {
@@ -23,7 +39,7 @@ body {
 /* note header */
 
 .header {
-	background-image:url(http://www.wallpaper-wallpaper.com/wp-content/uploads/images/art-illustration-paint/art-illustration-paint-photo-wallpaper-desktop-32.jpg);
+	background-image:url(http://www.pageresource.com/wallpapers/wallpaper/howl-moving-castle-fan-art-wang-illustration_622636.jpg);
 	background-size:cover;
 	width:100%;
 	height:400px;
@@ -39,7 +55,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color:rgba(0,0,0,0.5);
+	background-color:rgba(0,0,0,0.3);
 }
 
 .under-header {
@@ -79,15 +95,15 @@ body {
 /* note show */
 
 .note-show {
-	padding:20px 200px;
+	padding:20px 100px;
 	border-bottom:1px dotted #808080;
-	letter-spacing:3px;
-	line-height:200%;
+	letter-spacing:2px;
+    line-height:150%;
 	font-size:16px;
 }
 
 .note-show p {
-	margin-bottom:2em;
+	margin-bottom:1.5em;
 }
 
 /* note_by_photo */
@@ -112,6 +128,18 @@ body {
 	right: 0;
 	bottom: 0;
 	background-color:rgba(0,0,0,0.3);
+}
+
+.notes_by_photo:hover::before {
+	z-index:1;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color:rgba(0,0,0,0.1);
 }
 
 .under_notes_by_photo {
@@ -147,6 +175,55 @@ body {
 	padding-left:15px;
 }
 
+/* article index & show */
 
+.article-index {
+	width:30%;
+	height:370px;
+	border:1px solid #808080;
+	border-radius:5px;
+	position:relative;
+	float:left;
+	margin:15px;
+}
 
+.article-index-image {
+	width:100%; 
+	height:200px; 
+	border-radius:5px 5px 0px 0px;
+	position:relative;
+}
 
+.article-show {
+	width:70%;
+	margin:0 auto;
+	border:1px solid #808080;
+	margin-top:30px;
+	margin-bottom:30px; 
+	border-radius:5px;
+	position:relative;
+}
+
+.article-show li{
+	padding-bottom:5px;
+}
+
+/* user edit */
+
+.user-edit {
+	width:70%;
+	margin:0 auto;
+	padding-bottom:100px;
+}
+
+/* user index & show */
+
+.user-show {
+	width:100%;
+	margin:0 auto;
+	padding:30px 30px;
+}
+
+.user-show li{
+	padding-bottom:20px;
+}

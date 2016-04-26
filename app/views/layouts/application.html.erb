@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Sync Town</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -17,8 +17,13 @@
 
 <div class="under-header">
 
-<h1><%= link_to "Blog Sample", notes_path, :style=>"color:white;" %></h1>
-<p>木村優太のブログ</p>
+<% if user_signed_in? %>
+<%= image_tag(current_user.image, {:style=>"height:100px; width:100px; border-radius:50%; border:5px solid white;"}) %>
+<% end %>
+
+<h1><%= link_to "Sync Town", notes_path, class: "white", :style=>"font-size:40px;" %></h1>
+<p>街と建築とアートとヨーロッパ</p>
+
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
@@ -28,7 +33,7 @@
 </div>
 
 <nav class="navbar navbar-inverse" style="border-radius:0px;margin:0px;">
-  <div class="container-fluid" style="padding-left:67px;">
+  <div class="container-fluid" style="padding:0px 70px;">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -44,7 +49,7 @@
 
       <ul class="nav navbar-nav">
 
-      <li class="active">
+      <li>
       <%= link_to "Home", notes_path %><span class="sr-only">(current)</span>
       </li>
 
@@ -52,11 +57,27 @@
 	  <%= link_to "Photo", notes_by_photo_note_path(:id) %>
 	  </li>
 
-	  <li>
-	  <a>Profile</a>
-	  </li>
+    <li>
+      <%= link_to "Articles", articles_path %>
+    </li>
+
+     <li>
+    <%= link_to "Profile", users_path %>
+    </li>
 
       </ul>
+
+    <% if user_signed_in? %>
+     <ul class="nav navbar-nav navbar-right">
+
+     <li><%= link_to 'New Note', new_note_path %></li>
+     <li><%= link_to 'Create Category', categories_path %></li>
+     <li><%= link_to 'New Article', new_article_path %></li>
+     <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+     <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+
+     </ul>
+    <% end %>
       
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

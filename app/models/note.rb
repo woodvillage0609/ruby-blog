@@ -7,4 +7,6 @@ class Note < ActiveRecord::Base
 	has_attached_file :photo, styles: {medium: "600x600>", thumb: "200x200>" }
 	validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
+	belongs_to :user
+
 end
