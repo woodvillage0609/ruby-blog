@@ -1,4 +1,18 @@
-<div class="">
+<div class="notes_by_photo_order">
+
+<div class="btn-group" role="group" aria-label="..." >
+
+  <button type="button" class="btn btn-default">
+  	<%=link_to_unless_current "RECENT", notes_by_photo_note_path, class:"black" %>
+  </button>
+
+  <button type="button" class="btn btn-default">
+  	<%=link_to_unless_current "RANDOM", notes_by_photo_random_note_path, class:"black" %>
+  </button>
+
+</div>
+
+</div>
 
 <% @notes.each do |note| %>
 
@@ -22,5 +36,3 @@
 </div>
 
 <% end %>
-
-</div>

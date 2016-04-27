@@ -1,5 +1,19 @@
-<p id="notice"><%= notice %></p>
 
+<div class="notes_by_photo_order">
+
+<div class="btn-group" role="group" aria-label="..." >
+
+  <button type="button" class="btn btn-default">
+    <%=link_to_unless_current "RECENT", articles_path, class:"black" %>
+  </button>
+
+  <button type="button" class="btn btn-default">
+    <%=link_to_unless_current "RANDOM", articles_random_article_path(:id), class:"black" %>
+  </button>
+
+</div>
+
+</div>
 
     <% @articles.each do |article| %>
 

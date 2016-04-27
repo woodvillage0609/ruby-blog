@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :articles
+  resources :articles do
+    member do
+      get:articles_random
+    end
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users, controllers: { registrations: "registrations"}
@@ -12,6 +17,7 @@ Rails.application.routes.draw do
     member do
     get:notes_by_category
     get:notes_by_photo
+    get:notes_by_photo_random
   end
 end
 
