@@ -4,11 +4,11 @@
 <div class="btn-group" role="group" aria-label="..." >
 
   <button type="button" class="btn btn-default">
-    <%=link_to_unless_current "RECENT", articles_path, class:"black" %>
+    <%=link_to "RECENT", articles_path, :style=>"color:black;" %>
   </button>
 
   <button type="button" class="btn btn-default">
-    <%=link_to_unless_current "RANDOM", articles_random_article_path(:id), class:"black" %>
+    <%=link_to "RANDOM", articles_random_article_path(:id), :style=>"color:black;" %>
   </button>
 
 </div>
@@ -27,10 +27,10 @@
         
         <li>
         <table><tr>
-        <td style="padding-right:5px;">
-        <%= image_tag(article.user.image, {:style=>"height:50px; width:50px; border-radius:50%;"}) %></td>
         <td>
-        <%= simple_format(article.comment.truncate(55)) %>
+        <%= image_tag(article.user.image, {:style=>"height:50px; width:50px; border-radius:50%; position:absolute; top:0;"}) %></td>
+        <td style="padding-left:55px;">
+        <%= simple_format(article.comment.truncate(50)) %>
         </td>
         </tr></table>
         </li>
