@@ -154,6 +154,11 @@ body {
 	font-size:20px;
 }
 
+.notes_by_photo_order {
+	text-align:center;
+	padding-top:20px;
+}
+
 .note_time {
 	position:absolute; 
 	right:10px; 
@@ -185,6 +190,10 @@ body {
 	position:relative;
 	float:left;
 	margin:15px;
+}
+
+.article-index table {
+	position:relative;
 }
 
 .article-index-image {

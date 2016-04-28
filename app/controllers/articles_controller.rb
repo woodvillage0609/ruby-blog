@@ -1,11 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except:[:show, :index]
+  before_action :authenticate_user!, except:[:show, :index, :articles_random]
 
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all.order(created_at: :desc)
+  end
+
+  def articles_random
+    @articles = Article.all.order("RAND()")
+    render "index"
   end
 
   # GET /articles/1
