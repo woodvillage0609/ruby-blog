@@ -13,9 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/woodvillage0609/blog.git"
   },
-  "engines": {
-    "node": "4.4.3"
-    },
   "author": "",
   "license": "ISC",
   "bugs": {
