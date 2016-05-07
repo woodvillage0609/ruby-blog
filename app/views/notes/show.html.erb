@@ -22,11 +22,12 @@
 
 <td style="text-align:right;"><%= link_to 'Edit', edit_note_path(@note) %> |
 <%= link_to 'Destroy', note_path(@note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</table>
 
 <% else %>
 
-<p><%= link_to 'Back', notes_path %></p>
+<td><%= link_to 'Back', notes_path %></td>
+
+</table>
 
 <% end %>
 
