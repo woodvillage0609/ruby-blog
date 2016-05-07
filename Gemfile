@@ -31,7 +31,9 @@ gem 'rails_admin'
 
 gem 'paperclip'
 
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', '~> 0.0.3', group: :production
+
+gem 'aws-sdk', '< 2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
