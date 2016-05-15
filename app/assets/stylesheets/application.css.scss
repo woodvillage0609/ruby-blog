@@ -270,9 +270,9 @@ body {
 /* タブレット向けレイアウト */
 /* ブレイクポイントをmax-width: 1000pxに指定 */
 @media(max-width:1000px){
-	.notes_by_photo {width:50%;}
+	.notes_by_photo {width:50%; padding:25px;}
 
-	.article-index {width:50%;}
+	.article-index {width:50%; padding:25px;}
 
 	.random-article {width:50%; padding:10px 25px;}
 
