@@ -40,6 +40,20 @@ body {
 	background-color:#F0F0F0;
 }
 
+
+/* application header */
+
+.user-login-image {
+	height:100px; 
+	width:100px; 
+	border-radius:50%; 
+	border:5px solid white;
+}
+
+.synctown {
+	font-size:40px;
+}
+
 /* note header */
 
 .header {
@@ -94,6 +108,12 @@ body {
 
 .note-sidebar {
 	padding-top:20px;
+}
+
+.note-index-photo {
+	border-radius:5px; 
+	width:100%; 
+	height:70%;
 }
 
 /* note show */
@@ -174,6 +194,18 @@ body {
 	z-index:2;
 }
 
+/* category */
+
+.table-condensed {
+	width:90%;
+	margin:0 auto;
+}
+
+.category-table {
+	padding-right:50px; 
+	font-size:15px;
+}
+
 /* log in sign up */
 
 .login-form {
@@ -192,7 +224,7 @@ body {
 
 .article-index {
 	width:33.33%;
-	padding:10px;
+	padding:25px;
 	float:left;
 }
 
@@ -215,7 +247,7 @@ body {
 }
 
 .article-show {
-	width:70%;
+	width:80%;
 	margin:0 auto;
 	border:1px solid #808080;
 	margin-top:30px;
@@ -226,6 +258,25 @@ body {
 
 .article-show li{
 	padding-bottom:5px;
+}
+
+.random-article {
+	width:33.33%; 
+	float:left;
+	margin-top:20px; 
+	padding:15px;
+}
+
+.random-article-sub {
+	height:280px; 
+	border:1px solid #808080;
+	border-radius:5px 5px 10px 10px;
+}
+
+.random-article-image {
+	width:100%; 
+	height:200px; 
+	border-radius:5px 5px 0px 0px;
 }
 
 /* user edit */
@@ -247,3 +298,74 @@ body {
 .user-show li{
 	padding-bottom:20px;
 }
+
+.user-image {
+	width:90%; 
+	border-radius:5px;
+}
+
+
+/* タブレット向けレイアウト */
+/* ブレイクポイントをmax-width: 1000pxに指定 */
+@media(max-width:1000px){
+	.notes_by_photo {width:50%; padding:25px;}
+
+	.article-index {width:50%; padding:25px;}
+
+	.random-article {width:50%; padding:10px 25px;}
+
+	.user-image {width:40%; margin-left:15px;}
+
+	.category-table {padding-right:25px;}
+	
+}
+
+/* スマートフォン向けレイアウト */
+/* ブレイクポイントをmax-width: 670pxに指定 */
+@media(max-width:670px){
+
+	.header {height:250px;}
+
+	.user-login-image {height:50px; width:50px;	border:1px solid white;}
+
+	.synctown {font-size:25px;}
+
+	.under-header {padding-top:60px;}
+
+	.note-list {padding:0px;}
+
+	.note-list li {padding:0px 15px;}
+
+	.note-index-photo {border-radius:0px;}
+
+	.note-show {padding:0px;}
+
+	.note-show li {padding:0px 30px;}
+
+	.notes_by_photo {width:100%;}
+
+	.article-index {width:100%; padding:10px 0px;}
+
+	.article-index li {padding:0px 20px;}
+
+	.article-index-sub {border-radius:0px;}
+
+	.article-index-image {border-radius:0px;}
+
+	.article-show {width:100%;}
+
+	.article-show li {padding:20px;}
+
+	.random-article {width:100%;}
+
+	.random-article-image {border-radius:0px;}
+
+	.random-article-sub {border-radius:0px;}
+
+	.user-image {width:94%;}
+
+	.category-table {padding-right:10px;}
+
+}
+
+

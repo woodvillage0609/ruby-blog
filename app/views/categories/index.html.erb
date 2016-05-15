@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="col-lg-6">
+  <div class="col-md-6 col-xs-12">
 
     <div class="note-create">
 
@@ -14,19 +14,19 @@
 
   </div>
 
-  <div class="col-lg-6">
+  <div class="col-md-6 col-xs-12">
 
       <p id="notice"><%= notice %></p>
 
-      <h1>Categories</h1>
-
       <table class="tabele table-condensed">
+
+      <h1 style="padding-left:25px;">Categories</h1>
 
           <% @categories.each do |category| %>
 
             <tr>
 
-              <td style="padding-right:50px; font-size:15px;">
+              <td class="category-table" >
               <%= category.name %></button></td>
 
               <td><button type="button" class="btn btn-info"><%= link_to 'Edit', edit_category_path(category), :style=>"color:white;" %></button></td>
