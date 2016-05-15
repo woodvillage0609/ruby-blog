@@ -38,6 +38,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @random_notes=Note.where.not(id:@note).order("RAND()")
   end
 
   # GET /notes/new

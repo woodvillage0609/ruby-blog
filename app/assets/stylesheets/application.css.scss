@@ -192,7 +192,7 @@ body {
 
 .article-index {
 	width:33.33%;
-	padding:15px;
+	padding:25px;
 	float:left;
 }
 
@@ -228,6 +228,19 @@ body {
 	padding-bottom:5px;
 }
 
+.random-article {
+	width:33.33%; 
+	float:left;
+	margin-top:20px; 
+	padding:15px;
+}
+
+.random-article-sub {
+	height:280px; 
+	border:1px solid #808080;
+	border-radius:5px 5px 10px 10px;
+}
+
 /* user edit */
 
 .user-edit {
@@ -247,3 +260,47 @@ body {
 .user-show li{
 	padding-bottom:20px;
 }
+
+.user-image {
+	width:90%; 
+	border-radius:5px;
+}
+
+
+/* タブレット向けレイアウト */
+/* ブレイクポイントをmax-width: 1000pxに指定 */
+@media(max-width:1000px){
+	.notes_by_photo {width:50%;}
+
+	.article-index {width:50%;}
+
+	.random-article {width:50%; padding:10px 25px;}
+
+	.user-image {width:40%; margin-left:15px;}
+}
+
+/* スマートフォン向けレイアウト */
+/* ブレイクポイントをmax-width: 670pxに指定 */
+@media(max-width:670px){
+	.notes_by_photo {width:100%;}
+
+	.article-index {width:100%; padding:10px 0px;}
+
+	.article-index li {padding:0px 20px;}
+
+	.article-index-sub {border-radius:0px;}
+
+	.article-index-image {border-radius:0px;}
+
+	.article-show {width:100%;}
+
+	.article-show li {padding:20px;}
+
+	.random-article {width:100%;}
+
+	.random-article-sub {border-radius:0px;}
+
+	.user-image {width:94%;}
+}
+
+
