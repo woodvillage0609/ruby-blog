@@ -20,10 +20,10 @@
 <div class="under-header">
 
 <% if user_signed_in? %>
-<%= image_tag(current_user.image, {:style=>"height:100px; width:100px; border-radius:50%; border:5px solid white;"}) %>
+<%= image_tag(current_user.image, {class:"user-login-image"}) %>
 <% end %>
 
-<h1><%= link_to "Sync Town", notes_path, class: "white", :style=>"font-size:40px;" %></h1>
+<h1><%= link_to "Sync Town", notes_path, class: "white synctown" %></h1>
 <p>都市と建築とアートとヨーロッパ</p>
 
 
