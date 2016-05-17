@@ -344,7 +344,7 @@ body {
 
 	.notes_by_photo {width:100%;}
 
-	.article-index {width:100%; padding:10px 0px;}
+	.article-index {width:100%;}
 
 	.article-index li {padding:0px 20px;}
 
@@ -352,15 +352,15 @@ body {
 
 	.article-index-image {border-radius:0px;}
 
-	.article-show {width:100%;}
+	.article-show {width:100%; margin-top:0px;}
 
 	.article-show li {padding:20px;}
 
+	.article-show h1 {font-size:25px;}
+
 	.random-article {width:100%;}
 
-	.random-article-image {border-radius:0px;}
-
-	.random-article-sub {border-radius:0px;}
+	.random-article-sub {border-radius:5px 5px 0px 0px;}
 
 	.user-image {width:94%;}
 
