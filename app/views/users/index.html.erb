@@ -1,16 +1,16 @@
 <div class="user-show">
 
-<div class=row>
+<div class="row" >
 
 <% @users.each do |user| %>
 
-<div class="col-md-4" style="padding:0px;">
+<div class="col-md-4" style="padding:5px;">
 
 <li><%= image_tag(user.image, {class:"user-image"}) %></li>
 
 </div>
 
-<div class="col-md-8">
+<div class="col-md-8" style="padding:5px;">
 
 <div class="user-profile" style="border:1px dotted #808080; border-radius:5px;width:100%; padding:10px;">
 
@@ -18,6 +18,7 @@
 	<li style="font-size:20px;"><strong><%= user.name %></strong></li>
 	<li><%= simple_format(user.profile) %></li>
 	<li>連絡先アドレス：<strong><%= user.email %></strong></li>
+	<li>現在、<a href="https://synctown.herokuapp.com" target="_blank" class="black"><strong>Syncownのソーシャルネットワーク</strong></a>を展開中</li>
 </ul>
 
 </div>
