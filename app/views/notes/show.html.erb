@@ -1,6 +1,6 @@
 <div class="note-show">
 
-<p id="notice"><%= notice %></p>
+<a id="notice"><%= notice %></a>
 
 <ul>
 
@@ -15,34 +15,33 @@
   <p><%= simple_format(@note.content) %></p>
 </li>
 
-<%if user_signed_in? %>
-
+<li>
+<% if user_signed_in? %>
 
 <table style="width:100%;">
 
-<li>
 <td><%= link_to 'Back', notes_path %></td>
 
 <td style="text-align:right;"><%= link_to 'Edit', edit_note_path(@note) %> |
 <%= link_to 'Destroy', note_path(@note), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</li>
 
 <% else %>
 
-<li>
 <td><%= link_to 'Back', notes_path %></td>
-</li>
 
 </table>
 
-
 <% end %>
+
+</li>
 
 </ul>
 
 </div>
 
+
 <% @random_notes.limit(6).each do |random_note| %>
+
 <div class="notes_by_photo">
 
 <div class="notes_by_photo_sub">
@@ -62,5 +61,8 @@
       </div>
         
 </div>
+
 </div>
+
 <% end %>
+
