@@ -5,11 +5,11 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.page(params[:page]).order(created_at: :desc)
   end
 
   def articles_random
-    @articles = Article.all.order("RAND()")
+    @articles = Article.page(params[:page]).order("RAND()")
     render "index"
   end
 

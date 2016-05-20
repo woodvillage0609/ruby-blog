@@ -4,22 +4,22 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all.order(created_at: :desc)
+    @notes = Note.page(params[:page]).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
   end
 
   def notes_by_month
-    @notes = Note.where( "YEAR(created_at) = ? AND MONTH(created_at) = ? ", params[:year], params[:month]).order("created_at DESC")
+    @notes = Note.page(params[:page]).where( "YEAR(created_at) = ? AND MONTH(created_at) = ? ", params[:year], params[:month]).order("created_at DESC")
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
-    render 'index'
+     render 'index'
   end
 
   def notes_by_category
-    @notes = Note.where("category = ?", params[:id])
+    @notes = Note.page(params[:page]).where("category = ?", params[:id])
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
@@ -28,10 +28,12 @@ class NotesController < ApplicationController
 
   def notes_by_photo
     @notes = Note.all.order(created_at: :desc)
+    @notes = Note.page(params[:page]).order(created_at: :desc)
   end
 
   def notes_by_photo_random
     @notes = Note.all.order("RAND()")
+    @notes = Note.page(params[:page]).order("RAND()")
     render "notes_by_photo"
   end
 
