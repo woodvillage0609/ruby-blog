@@ -16,15 +16,18 @@
 
   <div class="col-md-6 col-xs-12">
 
-      <p id="notice"><%= notice %></p>
+      <a id="notice"><%= notice %></a>
 
       <table class="tabele table-condensed">
 
-      <h1 style="padding-left:25px;">Categories</h1>
+      <tr>
+
+      <td><h1>Categories</h1></td>
+
+      </tr>
+      <tr>
 
           <% @categories.each do |category| %>
-
-            <tr>
 
               <td class="category-table" >
               <%= category.name %></button></td>
@@ -35,7 +38,7 @@
               <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, :style=>"color:white;" %>
               </button></td>
 
-            </tr>
+      </tr>
 
           <% end %>
 

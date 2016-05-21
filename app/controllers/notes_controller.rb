@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.page(params[:page]).order(created_at: :desc)
+    @notes = Note.page(params[:page]).per(6).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
@@ -19,7 +19,7 @@ class NotesController < ApplicationController
   end
 
   def notes_by_category
-    @notes = Note.page(params[:page]).where("category = ?", params[:id])
+    @notes = Note.page(params[:page]).where("category = ?", params[:id]).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
@@ -27,8 +27,7 @@ class NotesController < ApplicationController
   end
 
   def notes_by_photo
-    @notes = Note.all.order(created_at: :desc)
-    @notes = Note.page(params[:page]).order(created_at: :desc)
+    @notes = Note.page(params[:page]).per(30).order(created_at: :desc)
   end
 
   def notes_by_photo_random
