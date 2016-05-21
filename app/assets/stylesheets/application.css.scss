@@ -54,6 +54,10 @@ body {
 	font-size:40px;
 }
 
+.container-fluid {
+	padding:0px 25px;
+}
+
 /* note header */
 
 .header {
@@ -241,6 +245,10 @@ body {
 	position:relative;
 }
 
+.article-index-sub li {
+	padding:5px;
+}
+
 .article-index table {
 	position:relative;
 }
@@ -268,7 +276,7 @@ body {
 
 .article-tab {
 	display:inline-block;
-	width:60%; 
+	width:70%; 
 	color:#239b76;
 	text-align:center; 
 	padding:15px; 
@@ -353,6 +361,8 @@ body {
 
 	.synctown {font-size:25px;}
 
+	.container-fluid {padding:0px 10px;}
+
 	.under-header {padding-top:30px;}
 
 	.note-list {padding:0px;}
@@ -372,6 +382,8 @@ body {
 	.article-index li {padding:0px 20px;}
 
 	.article-index-sub {border-radius:0px;}
+
+	.article-index-sub li {padding:5px;}
 
 	.article-index-image {border-radius:0px;}
 
