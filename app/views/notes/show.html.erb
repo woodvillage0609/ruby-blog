@@ -16,9 +16,10 @@
 </li>
 
 <li>
-<% if user_signed_in? %>
 
 <table style="width:100%;">
+<% if user_signed_in? %>
+
 
 <td><%= link_to 'Back', notes_path %></td>
 
@@ -29,9 +30,9 @@
 
 <td><%= link_to 'Back', notes_path %></td>
 
-</table>
-
 <% end %>
+
+</table>
 
 </li>
 
