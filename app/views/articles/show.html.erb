@@ -6,7 +6,7 @@
 <ul style="padding:10px;">
 
 <li style="font-size:30px;">
-  <h1><strong><%= @article.title %></strong></h1>
+  <strong><%= @article.title %></strong>
 </li>
 
 <li>
@@ -29,7 +29,7 @@
   <td>
   <%= image_tag(@article.user.image, {:style=>"height:50px; width:50px; border-radius:50%; position:absolute; top:0px"}) %></td>
 
-  <td style="padding-left:80px;"><%= simple_format(@article.comment) %></td>
+  <td style="padding-left:70px;"><%= simple_format(@article.comment) %></td>
   </tr>
 </li>
 </table>

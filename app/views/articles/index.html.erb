@@ -8,12 +8,14 @@
   </button>
 
   <button type="button" class="btn btn-default">
-    <%=link_to "RANDOM", articles_random_article_path(:id), :style=>"color:black;" %>
+    <%=link_to "SHUFFLE", articles_random_article_path(:id), :style=>"color:black;" %>
   </button>
 
 </div>
 
 </div>
+
+<div class="article-index-layout">
 
     <% @articles.each do |article| %>
 
@@ -49,6 +51,8 @@
     </div>
 
     <% end %>
+
+</div>
 
 <div class="pagenation_bottom">
   <%= paginate @articles, :style=>"float:left;" %>
