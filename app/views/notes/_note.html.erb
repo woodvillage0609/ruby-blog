@@ -3,9 +3,9 @@
 
 <div class="note-list">
       <ul>
-        <li><h2><strong>
+        <li><h3><strong>
         <%=link_to note.title, note_path(note), class:"black" %>
-        </strong></h2>
+        </strong></h3>
 
       <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note) %>
       </li>
