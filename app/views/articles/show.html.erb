@@ -18,7 +18,7 @@
 			</li>
 
 <li style="text-align:right; color:#808080;">
-   <span class="fa fa-paperclip"> <%= @article.source %></span>
+   <span class="fa fa-leaf"> <%= @article.source %></span>
 </li>
 
 <br>
@@ -37,15 +37,15 @@
 <br>
 
 <% if user_signed_in? %>
- <a><%= link_to 'Back', articles_path %></a> 
+ <li style="position:absolute; left:10px; bottom:0px;"><%= link_to 'Back', articles_path %></li> 
 
-<li style="position:absolute; right:10px; bottom:10px;">
+<li style="position:absolute; right:10px; bottom:0px;">
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Destroy', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> 
 </li>
 
 <% else %>
-<a><%= link_to 'Back', articles_path %></a>
+<li style="position:absolute; left:10px; bottom:0px;"><%= link_to 'Back', articles_path %></li>
 
 <% end %>
 
