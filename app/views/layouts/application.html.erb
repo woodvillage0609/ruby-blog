@@ -26,10 +26,6 @@
 <h1><%= link_to "Sync Town", notes_path, class: "white synctown" %></h1>
 <p>都市と建築とアートとヨーロッパ</p>
 
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
 </div>
 
 </div>
@@ -92,6 +88,13 @@
 <div class="col-md-1 col-xs-0"></div>
 
 <div class="col-md-10 col-xs-12" style="background-color:white;">
+
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name == "notice" ? "success" : "error" %>" style="margin:0px -15px; padding:8px; border-radius:0px;">
+    <a class="close" data-dismiss="alert">×</a> <!-- アラートダイアログに×ボタンをつける -->
+    <%= msg %>
+  </div>
+<% end %>
 
 <%= yield %>
 
