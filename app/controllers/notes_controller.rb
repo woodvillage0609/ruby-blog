@@ -27,7 +27,7 @@ class NotesController < ApplicationController
   end
 
   def notes_by_photo
-    @notes = Note.page(params[:page]).per(30).order(created_at: :desc)
+    @notes = Note.page(params[:page]).per(18).order(created_at: :desc)
   end
 
   def notes_by_photo_random
