@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+	box-sizing: border-box;
+}
+
 li {
 	list-style:none;
 	margin:0px;
@@ -12,18 +16,52 @@ ul{
 	margin:0px;
 }
 
+
 a {
 	text-decoration:none;
+	color:#666666;
+	transition:0.7s;
+}
+
+a:hover {
+	text-decoration:none;
+	color:#FF9872;
+}
+
+.white {
+	color:white;
+}
+
+.black {
+	color:black;
 }
 
 body {
 	background-color:#F0F0F0;
 }
 
+
+/* application header */
+
+.user-login-image {
+	height:70px; 
+	width:70px; 
+	border-radius:50%; 
+	border:2px solid white;
+}
+
+.synctown {
+	font-size:40px;
+}
+
+.container-fluid {
+	padding:0px 25px;
+}
+
 /* note header */
 
 .header {
-	background-image:url(http://www.wallpaper-wallpaper.com/wp-content/uploads/images/art-illustration-paint/art-illustration-paint-photo-wallpaper-desktop-32.jpg);
+	background-image: url(IMG_5916.jpg);
 	background-size:cover;
 	width:100%;
 	height:400px;
@@ -39,7 +77,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color:rgba(0,0,0,0.5);
+	background-color:rgba(0,0,0,0.3);
 }
 
 .under-header {
@@ -76,33 +114,48 @@ body {
 	padding-top:20px;
 }
 
+.note-sidebar li {
+	padding-left:15px;
+	padding-bottom:4px;
+}
+
+.note-index-photo {
+	border-radius:5px; 
+	width:100%; 
+	height:70%;
+}
+
 /* note show */
 
 .note-show {
-	padding:20px 200px;
+	padding:20px 50px;
 	border-bottom:1px dotted #808080;
-	letter-spacing:3px;
-	line-height:200%;
+	letter-spacing:2px;
+    line-height:150%;
 	font-size:16px;
 }
 
 .note-show p {
-	margin-bottom:2em;
+	margin-bottom:1.5em;
 }
 
 /* note_by_photo */
 
 .notes_by_photo {
-	width:30%;
+	width:33.33%;
+	float:left;
+	padding:20px 10px 20px 10px;
+}
+
+.notes_by_photo_sub {
 	border:1px solid #808080;
 	border-radius:5px;
 	height:220px;
-	float:left;
-	margin:20px 15px 20px 15px;
 	position:relative;
+
 }
 
-.notes_by_photo::before {
+.notes_by_photo_sub::before {
 	z-index:1;
 	content: "";
 	display: block;
@@ -114,16 +167,38 @@ body {
 	background-color:rgba(0,0,0,0.3);
 }
 
+.notes_by_photo_sub:hover::before {
+	z-index:1;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color:rgba(0,0,0,0.1);
+}
+
 .under_notes_by_photo {
 	position:absolute;
     width:100%;
 	color:white;
 	text-align:center;
-	top:0px;
+	top:90px;
 	left:0px;
-	line-height:220px;
 	z-index:2;
 	font-size:20px;
+}
+
+.notes_by_photo_order {
+	text-align:center;
+	padding-top:20px;
+}
+
+.pagenation_bottom {
+	text-align:center;
+	padding:0px;
+	clear:left;
 }
 
 .note_time {
@@ -131,6 +206,18 @@ body {
 	right:10px; 
 	bottom:5px;
 	z-index:2;
+}
+
+/* category */
+
+.table-condensed {
+	width:90%;
+	margin:0 auto;
+}
+
+.category-table {
+	padding-right:50px; 
+	font-size:15px;
 }
 
 /* log in sign up */
@@ -147,6 +234,190 @@ body {
 	padding-left:15px;
 }
 
+/* article index & show */
 
+.article-index {
+	width:33.33%;
+	padding:15px;
+	float:left;
+}
+
+.article-index-sub {
+	height:400px;
+	border:1px solid #808080;
+	border-radius:5px;
+	position:relative;
+}
+
+.article-index-sub li {
+	padding:5px;
+}
+
+.article-index table {
+	position:relative;
+}
+
+.article-index-image {
+	width:100%; 
+	height:200px; 
+	border-radius:5px 5px 0px 0px;
+	position:relative;
+}
+
+.article-show {
+	width:80%;
+	margin:0 auto;
+	border:1px solid #808080;
+	margin-top:30px;
+	margin-bottom:30px; 
+	border-radius:5px;
+	position:relative;
+}
+
+.article-show li{
+	padding-bottom:5px;
+}
+
+.article-tab {
+	display:inline-block;
+	width:70%; 
+	color:#FF9872;
+	text-align:center; 
+	padding:15px; 
+	background-color:white;
+	border:2px solid #FF9872;
+	cursor:pointer; 
+	opacity:0.7;
+}
+
+.article-tab:hover {
+	background-color:#FF9872; 
+	color:white; 
+}
+
+.random-article {
+	width:33.33%; 
+	float:left;
+	margin-top:20px; 
+	padding:15px;
+}
+
+.random-article-sub {
+	height:280px; 
+	border:1px solid #808080;
+	border-radius:5px 5px 10px 10px;
+}
+
+.random-article-image {
+	width:100%; 
+	height:200px; 
+	border-radius:5px 5px 0px 0px;
+}
+
+/* user edit */
+
+.user-edit {
+	width:70%;
+	margin:0 auto;
+	padding-bottom:100px;
+}
+
+/* user index & show */
+
+.user-show {
+	width:100%;
+	margin:0 auto;
+	padding:30px;
+}
+
+.user-show li{
+	padding-bottom:20px;
+}
+
+.user-image {
+	width:100%; 
+	border-radius:5px;
+}
+
+
+/* タブレット向けレイアウト */
+/* ブレイクポイントをmax-width: 1000pxに指定 */
+@media(max-width:1000px){
+
+	.note-sidebar {padding-left:20px;}
+
+	.notes_by_photo {width:50%; padding:20px;}
+
+	.notes_by_photo_layout {padding:0px 30px;}
+
+	.article-index {width:50%; padding:20px;}
+
+	.article-index-layout {padding:0px 30px;}
+
+	.random-article {width:50%; padding:10px 15px;}
+
+	.user-image {width:40%;}
+
+	.category-table {padding-right:25px;}
+	
+}
+
+/* スマートフォン向けレイアウト */
+/* ブレイクポイントをmax-width: 670pxに指定 */
+@media(max-width:670px){
+
+	.header {height:200px;}
+
+	.user-login-image {height:50px; width:50px;	border:1px solid white;}
+
+	.synctown {font-size:25px;}
+
+	.container-fluid {padding:0px 10px;}
+
+	.under-header {padding-top:30px;}
+
+	.note-list {padding:0px;}
+
+	.note-list li {padding:0px 15px;}
+
+	.note-index-photo {border-radius:0px;padding:0px 5px;}
+
+	.note-show {padding:0px;}
+
+	.note-show li {padding:0px 30px;}
+
+	.notes_by_photo {width:100%;}
+
+	.notes_by_photo_layout {padding:0px;}
+
+	.note-sidebar {padding-left:20px;}
+
+	.article-index {width:100%;}
+
+	.article-index li {padding:0px 20px;}
+
+	.article-index-sub {border-radius:0px;}
+
+	.article-index-sub li {padding:5px;}
+
+	.article-index-image {border-radius:0px;}
+
+	.article-index-layout {padding:0px;}
+
+	.article-show {width:100%; margin-top:-1px;}
+
+	.article-show li {padding:5px 15px;}
+
+	.article-show h1 {font-size:25px;}
+
+	.random-article {width:100%;padding:10px 20px;}
+
+	.random-article-sub {border-radius:5px 5px 0px 0px;}
+
+	.user-image {width:100%;}
+
+	.category-table {padding-right:10px;}
+
+}
 
 

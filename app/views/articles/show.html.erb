@@ -1,0 +1,81 @@
+
+<div class="article-show">
+
+  <%=link_to image_tag(@article.image, {:style=>"width:100%; border-radius:5px 5px 0px 0px;"}), @article.url, :target=>"_blank" %>
+
+<ul style="padding:10px;">
+
+<li style="font-size:25px;">
+  <strong><%= @article.title %></strong>
+</li>
+
+<li>
+  <p><%= simple_format(@article.content.truncate(150)) %></p>
+</li>
+
+<li style="text-align:center;">
+			  <a><%= link_to "続きを読む", @article.url, class:"article-tab", :target=>"_blank" %></a>
+			</li>
+
+<li style="text-align:right; color:#808080;">
+   <span class="fa fa-leaf"> <%= @article.source %></span>
+</li>
+
+<br>
+
+<li>
+<table style="position:relative; width:100%;">
+  <tr>
+  <td>
+  <%= image_tag(@article.user.image, {:style=>"height:50px; width:50px; border-radius:50%; position:absolute; top:0px"}) %></td>
+
+  <td style="padding-left:70px;"><%= simple_format(@article.comment) %></td>
+  </tr>
+</li>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+ <li style="position:absolute; left:10px; bottom:0px;"><%= link_to 'Back', articles_path %></li> 
+
+<li style="position:absolute; right:10px; bottom:0px;">
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Destroy', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> 
+</li>
+
+<% else %>
+<li style="position:absolute; left:10px; bottom:0px;"><%= link_to 'Back', articles_path %></li>
+
+<% end %>
+
+</ul>
+
+</div>
+
+<div class="article-index-layout">
+
+<% @random_articles.limit(6).each do |random_article| %>
+
+<div class="random-article">
+
+<div class="random-article-sub">
+
+<ul>
+<li>  
+<%=link_to image_tag(random_article.image, {class:"random-article-image"}), article_path(random_article) %>
+</li>
+
+<li style="padding:5px;">
+<%= link_to random_article.title.truncate(50), article_path(random_article), class:"black", :style=>"font-size:16px;" %>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<% end %>
+
+</div>

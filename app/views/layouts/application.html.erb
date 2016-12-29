@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sync Town-blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -11,24 +13,25 @@
 
 <div class="row">
 
-<div class="col-lg-12">
+<div class="col-md-12">
 
 <div class="header">
 
 <div class="under-header">
 
-<h1><%= link_to "Blog Sample", notes_path, :style=>"color:white;" %></h1>
-<p>木村優太のブログ</p>
+<% if user_signed_in? %>
+<%= image_tag(current_user.image, {class:"user-login-image"}) %>
+<% end %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<h1><%= link_to "Sync Town", notes_path, class: "white synctown" %></h1>
+<p>都市と建築とアートとヨーロッパ</p>
 
 </div>
 
 </div>
 
 <nav class="navbar navbar-inverse" style="border-radius:0px;margin:0px;">
-  <div class="container-fluid" style="padding-left:67px;">
+  <div class="container-fluid" >
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -44,7 +47,7 @@
 
       <ul class="nav navbar-nav">
 
-      <li class="active">
+      <li>
       <%= link_to "Home", notes_path %><span class="sr-only">(current)</span>
       </li>
 
@@ -52,11 +55,27 @@
 	  <%= link_to "Photo", notes_by_photo_note_path(:id) %>
 	  </li>
 
-	  <li>
-	  <a>Profile</a>
-	  </li>
+    <li>
+      <%= link_to "Articles", articles_path %>
+    </li>
+
+     <li>
+    <%= link_to "Profile", users_path %>
+    </li>
 
       </ul>
+
+    <% if user_signed_in? %>
+     <ul class="nav navbar-nav navbar-right">
+
+     <li><%= link_to 'New Note', new_note_path %></li>
+     <li><%= link_to 'Create Category', categories_path %></li>
+     <li><%= link_to 'New Article', new_article_path %></li>
+     <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+     <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+
+     </ul>
+    <% end %>
       
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -66,15 +85,22 @@
 
 <div class="row">
 
-<div class="col-lg-1"></div>
+<div class="col-md-1 col-xs-0"></div>
 
-<div class="col-lg-10" style="background-color:white;">
+<div class="col-md-10 col-xs-12" style="background-color:white;">
+
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name == "notice" ? "success" : "error" %>" style="margin:0px -15px; padding:8px; border-radius:0px;">
+    <a class="close" data-dismiss="alert">×</a> <!-- アラートダイアログに×ボタンをつける -->
+    <%= msg %>
+  </div>
+<% end %>
 
 <%= yield %>
 
 </div>
 
-<div class="col-lg-1"></div>
+<div class="col-md-1 col-xs-0"></div>
 
 </div>
 

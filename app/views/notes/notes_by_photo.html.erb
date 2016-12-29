@@ -1,26 +1,48 @@
-<div class="">
+<div class="notes_by_photo_order">
+
+<div class="btn-group" role="group" aria-label="..." >
+
+  <button type="button" class="btn btn-default">
+  	<%=link_to "RECENT", notes_by_photo_note_path, :style=>"color:black;" %>
+  </button>
+
+  <button type="button" class="btn btn-default">
+  	<%=link_to "SHUFFLE", notes_by_photo_random_note_path, :style=>"color:black;" %>
+  </button>
+
+</div>
+
+</div>
+
+<div class="notes_by_photo_layout">
 
 <% @notes.each do |note| %>
 
 <div class="notes_by_photo">
+
+<div class="notes_by_photo_sub">
 
       <%=link_to image_tag(note.photo, {:style=>"border-radius:5px; width:100%; height:100%;"}) %>
 
       <div class="under_notes_by_photo">
 
         <p><strong>
-          <%=link_to note.title, note_path(note), :style=>"color:white;" %>
+          <%=link_to simple_format(note.title), note_path(note), class: "white" %>
         </strong></p>
 
       </div>
 
       <div class="note_time">
-      <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note), :style=>"color:white;" %>
+      <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note), class: "white" %>
       </div>
         
-
+</div>
 </div>
 
 <% end %>
 
+</div>
+
+<div class="pagenation_bottom">
+<%= paginate @notes %>
 </div>

@@ -1,12 +1,13 @@
 class RegistrationsController < ApplicationController
 
-	before_action :one_user_registered?
+before_action :one_user_registered?
 
-	def new
-	end
+def new
+end
 
-	def edit
-	end
+def edit
+end
+
 
   protected
 

@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="col-lg-6">
+  <div class="col-md-6 col-xs-12">
 
     <div class="note-create">
 
@@ -14,26 +14,31 @@
 
   </div>
 
-  <div class="col-lg-6">
+  <div class="col-md-6 col-xs-12">
 
-      <p id="notice"><%= notice %></p>
-
-      <h1>Categories</h1>
+      <a id="notice"><%= notice %></a>
 
       <table class="tabele table-condensed">
 
+      <tr>
+
+      <td style="padding:0px;"><h1>Categories</h1></td>
+
+      </tr>
+      <tr>
+
           <% @categories.each do |category| %>
 
-            <tr>
+              <td class="category-table" >
+              <%= category.name %></button></td>
 
-              <td style="padding-right:50px; font-size:15px;"><%= category.name %></td>
               <td><button type="button" class="btn btn-info"><%= link_to 'Edit', edit_category_path(category), :style=>"color:white;" %></button></td>
 
               <td><button type="button" class="btn btn-danger">
               <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, :style=>"color:white;" %>
               </button></td>
 
-            </tr>
+      </tr>
 
           <% end %>
 

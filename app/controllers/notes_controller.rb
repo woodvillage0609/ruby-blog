@@ -1,25 +1,25 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index, :notes_by_month, :notes_by_category, :notes_by_photo]
+  before_action :authenticate_user!, except: [:show, :index, :notes_by_month, :notes_by_category, :notes_by_photo, :notes_by_photo_random]
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all.order(created_at: :desc)
+    @notes = Note.page(params[:page]).per(6).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
   end
 
   def notes_by_month
-    @notes = Note.where( "YEAR(created_at) = ? AND MONTH(created_at) = ? ", params[:year], params[:month]).order("created_at DESC")
+    @notes = Note.page(params[:page]).where( "YEAR(created_at) = ? AND MONTH(created_at) = ? ", params[:year], params[:month]).order("created_at DESC")
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
-    render 'index'
+     render 'index'
   end
 
   def notes_by_category
-    @notes = Note.where("category = ?", params[:id])
+    @notes = Note.page(params[:page]).where("category = ?", params[:id]).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
@@ -27,12 +27,19 @@ class NotesController < ApplicationController
   end
 
   def notes_by_photo
-    @notes = Note.all.order(created_at: :desc)
+    @notes = Note.page(params[:page]).per(18).order(created_at: :desc)
+  end
+
+  def notes_by_photo_random
+    @notes = Note.all.order("RAND()")
+    @notes = Note.page(params[:page]).order("RAND()")
+    render "notes_by_photo"
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @random_notes=Note.where.not(id:@note).order("RAND()")
   end
 
   # GET /notes/new
