@@ -12,8 +12,8 @@
 
       <%= image_tag(note.photo, {class:"note-index-photo"}) %>
 
-        <li style="padding-top:20px; font-size:16px;">
-        <p><%= simple_format(note.content) %></p>
+        <li style="padding-top:20px; font-size:16px;" >
+        <p><%= note.content.html_safe %></p>
         </li>
 
 <% if user_signed_in? %>

@@ -25,6 +25,7 @@ end
 
   get 'notes/notes_by_month/:year/:month' => 'notes#notes_by_month', as: 'notes_by_month'
 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

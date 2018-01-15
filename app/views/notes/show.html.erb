@@ -10,7 +10,7 @@
 <%= image_tag(@note.photo, {class:"note-index-photo"}) %>
 
 <li>
-  <p><%= simple_format(@note.content) %></p>
+  <p><%= @note.content.html_safe %></p>
 </li>
 
 <li>
