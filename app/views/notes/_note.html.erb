@@ -13,7 +13,7 @@
       <%= image_tag(note.photo, {class:"note-index-photo"}) %>
 
         <li style="padding-top:20px; font-size:16px;" >
-        <p><%= note.content.html_safe %></p>
+        <p><%= note.content.truncate(450).html_safe %></p>
         </li>
 
 <% if user_signed_in? %>
