@@ -8,6 +8,7 @@ class NotesController < ApplicationController
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
+
   end
 
   def notes_by_month
@@ -40,6 +41,9 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @random_notes=Note.where.not(id:@note).order("RAND()")
+    @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
+    @notes_recent = Note.all.limit(5).order(created_at: :desc)
+    @categories = Category.all
   end
 
   # GET /notes/new
