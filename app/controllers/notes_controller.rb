@@ -8,6 +8,7 @@ class NotesController < ApplicationController
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
     @categories = Category.all
+
   end
 
   def notes_by_month
