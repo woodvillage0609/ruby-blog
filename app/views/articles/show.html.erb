@@ -29,7 +29,8 @@
   <td>
   <%= image_tag(@article.user.image, {:style=>"height:50px; width:50px; border-radius:50%; position:absolute; top:0px"}) %></td>
 
-  <td style="padding-left:70px;"><%= simple_format(@article.comment) %></td>
+  <td style="padding-left:70px;height:50px;">
+    <%= simple_format(@article.comment) %></td>
   </tr>
 </li>
 </table>

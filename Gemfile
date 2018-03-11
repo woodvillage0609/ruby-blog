@@ -39,6 +39,10 @@ gem 'kaminari'
 
 gem 'ckeditor', '~> 4.2', '>= 4.2.4'
 
+gem 'hirb', '~> 0.7.3'
+
+gem 'hirb-unicode', '~> 0.0.5'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
