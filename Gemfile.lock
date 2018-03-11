@@ -83,6 +83,10 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -202,6 +206,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (0.1.1)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -220,6 +225,8 @@ DEPENDENCIES
   ckeditor (~> 4.2, >= 4.2.4)
   coffee-rails (~> 4.1.0)
   devise (~> 3.5, >= 3.5.6)
+  hirb (~> 0.7.3)
+  hirb-unicode (~> 0.0.5)
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
@@ -236,4 +243,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.11.2
+   1.16.1
