@@ -17,9 +17,8 @@
 <br>
 
 <p><span class="fa fa-leaf"> Category</span></p>
-<% @categories.each do |category| %>
-<li><%=link_to category.name, notes_by_category_note_path(category) %>
-	
+<% @categories.each do |category, count| %>
+<li><%=link_to "#{category}  ( #{count} )", notes_by_category_note_path(category) %>
 </li>
 <% end %>
 </br>

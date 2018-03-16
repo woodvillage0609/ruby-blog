@@ -33,7 +33,7 @@
   <div class="field" style="padding-bottom:20px;">
 
     <%= f.label :category %><br>
-    <%= f.collection_select :category, Category.all, :id, :name, {include_blank:"選択してください"}, class: "form-control" %>
+    <%= f.collection_select :category, Category.all, :name, :name, {include_blank:"選択してください"}, class: "form-control" %>
 
   </div>
 

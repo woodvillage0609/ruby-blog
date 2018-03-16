@@ -7,7 +7,7 @@ class NotesController < ApplicationController
     @notes = Note.page(params[:page]).per(7).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
-    @categories = Category.all
+    @categories = Note.group(:category).count(:category)
 
   end
 
@@ -15,7 +15,7 @@ class NotesController < ApplicationController
     @notes = Note.page(params[:page]).where( "YEAR(created_at) = ? AND MONTH(created_at) = ? ", params[:year], params[:month]).order("created_at DESC")
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
-    @categories = Category.all
+    @categories = Note.group(:category).count(:category)
     render 'index'
   end
 
@@ -23,7 +23,7 @@ class NotesController < ApplicationController
     @notes = Note.page(params[:page]).where("category = ?", params[:id]).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
-    @categories = Category.all
+    @categories = Note.group(:category).count(:category)
     render 'index'
   end
 
@@ -44,7 +44,7 @@ class NotesController < ApplicationController
     @random_notes=Note.where.not(id:@note).order("RAND()")
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
-    @categories = Category.all
+    @categories = Note.group(:category).count(:category)
   end
 
   # GET /notes/new
