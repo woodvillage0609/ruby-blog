@@ -33,11 +33,11 @@ class NotesController < ApplicationController
   end
 
   def notes_by_photo_order
-    @notes = Note.all.order(created_at: :desc)
+    @notes = Note.all.limit(18).order(created_at: :desc)
   end
 
   def notes_by_photo_random
-    @notes = Note.all.order("RAND()")
+    @notes = Note.all.limit(18).order("RAND()")
   end
 
   # GET /notes/1
