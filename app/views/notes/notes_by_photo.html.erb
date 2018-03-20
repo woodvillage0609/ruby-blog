@@ -3,11 +3,11 @@
 <div class="btn-group" role="group" aria-label="..." >
 
   <button type="button" class="btn btn-default">
-  	<%=link_to "RECENT", notes_by_photo_note_path, :style=>"color:black;" %>
+  	<%=link_to "RECENT", notes_by_photo_order_note_path, :style=>"color:black;", remote: true %>
   </button>
 
   <button type="button" class="btn btn-default">
-  	<%=link_to "SHUFFLE", notes_by_photo_random_note_path, :style=>"color:black;" %>
+  	<%=link_to "SHUFFLE", notes_by_photo_random_note_path, :style=>"color:black;", remote: true %>
   
   </button>
 
@@ -16,6 +16,8 @@
 </div>
 
 <div class="notes_by_photo_layout">
+
+<div id="shuffle">
 
 <% @notes.each do |note| %>
 
@@ -41,6 +43,8 @@
 </div>
 
 <% end %>
+
+</div>
 
 </div>
 

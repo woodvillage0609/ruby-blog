@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     member do
     get:notes_by_category
     get:notes_by_photo
+    get:notes_by_photo_order
     get:notes_by_photo_random
   end
 end
