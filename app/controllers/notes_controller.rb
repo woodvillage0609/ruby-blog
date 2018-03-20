@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index, :notes_by_month, :notes_by_category, :notes_by_photo, :notes_by_photo_random]
+  before_action :authenticate_user!, except: [:show, :index, :notes_by_month, :notes_by_category, :notes_by_photo, :notes_by_photo_order, :notes_by_photo_random]
   # GET /notes
   # GET /notes.json
   def index
@@ -32,10 +32,12 @@ class NotesController < ApplicationController
 
   end
 
+  def notes_by_photo_order
+    @notes = Note.all.order(created_at: :desc)
+  end
+
   def notes_by_photo_random
     @notes = Note.all.order("RAND()")
-    @notes = Note.page(params[:page]).order("RAND()")
-    render "notes_by_photo"
   end
 
   # GET /notes/1
