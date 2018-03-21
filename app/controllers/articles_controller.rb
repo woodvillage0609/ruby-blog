@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except:[:show, :index, :articles_random]
+  before_action :authenticate_user!, except:[:show, :index, :articles_random, :articles_order]
 
   # GET /articles
   # GET /articles.json
@@ -8,9 +8,12 @@ class ArticlesController < ApplicationController
     @articles = Article.page(params[:page]).order(created_at: :desc)
   end
 
+  def articles_order
+    @articles = Article.all.order(created_at: :desc)
+  end
+
   def articles_random
-    @articles = Article.page(params[:page]).order("RAND()")
-    render "index"
+    @articles = Article.all.order("RAND()")
   end
 
   # GET /articles/1
