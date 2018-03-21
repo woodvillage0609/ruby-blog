@@ -1,25 +1,6 @@
-
-<div class="notes_by_photo_order" >
-
-<div class="btn-group" role="group" aria-label="..." >
-
-  <button type="button" class="btn btn-default">
-    <%=link_to "RECENT", articles_order_article_path(:id), :style=>"color:black;", remote: true %>
-  </button>
-
-  <button type="button" class="btn btn-default">
-    <%=link_to "SHUFFLE", articles_random_article_path(:id), :style=>"color:black;", remote: true %>
-  </button>
-
-</div>
-
-</div>
-
-<div id="shuffle_articles">
-
 <div class="article-index-layout">
 
-    <% @articles.each do |article| %>
+    <% @articles.limit(18).each do |article| %>
 
     <div class="article-index">
 
@@ -55,10 +36,3 @@
     <% end %>
 
 </div>
-
-<div class="pagenation_bottom">
-  <%= paginate @articles, :style=>"float:left;" %>
-</div>
-
-</div>
-
