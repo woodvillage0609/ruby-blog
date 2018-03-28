@@ -1,13 +1,13 @@
 <div class="note-sidebar">
 
-<p><span class="fa fa-leaf"> Recent Notes</span></p>
+<p><span class="fab fa-envira" style="font-size:15px;"> Recent Notes</span></p>
 <% @notes_recent.each do |note| %>
 <li><%= link_to note.title, note %></li>
 <% end %>
 
 <br>
 
-<p><span class="fa fa-leaf"> Archives</span></p>
+<p><span class="fab fa-envira" style="font-size:15px;"> Archives</span></p>
 <% @notes_by_month.each do |month, notes| %>
 <li>
 <%= link_to "#{month.strftime('%B %Y')} ( #{notes.count} )", notes_by_month_path(:year=> month.year, :month => month.month) %>
@@ -16,7 +16,7 @@
 
 <br>
 
-<p><span class="fa fa-leaf"> Category</span></p>
+<p><span class="fab fa-envira" style="font-size:15px;"> Category</span></p>
 <% @categories.each do |category, count| %>
 <li><%=link_to "#{category}  ( #{count} )", notes_by_category_note_path(category) %>
 </li>
