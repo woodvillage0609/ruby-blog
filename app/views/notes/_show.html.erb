@@ -1,14 +1,18 @@
 <div class="note-show">
 
 <ul>
-
 <li>
 <h3><strong><%= @note.title %></strong></h3>
+</li>
+
+<li style="text-align:right;vertical-align:bottom; color:#808080;float:right;">
 <%= @note.created_at.to_formatted_s(:without_second) %>
 </li>
+</ul>
 
 <%= image_tag(@note.photo, {class:"note-index-photo"}) %>
 
+<ul>
 <li>
   <p><%= @note.content.html_safe %></p>
 </li>
