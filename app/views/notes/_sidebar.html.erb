@@ -17,10 +17,23 @@
 <br>
 
 <p><span class="fab fa-envira" style="font-size:15px;"> Category</span></p>
+
 <% @categories.each do |category, count| %>
+
 <li><%=link_to "#{category}  ( #{count} )", notes_by_category_note_path(category) %>
 </li>
+
 <% end %>
+
+<br>
+
+<% @category_others.each do |category_other, count| %>
+
+<li><%=link_to "#{category_other}  ( #{count} )", notes_by_category_note_path(category_other) %>
+</li>
+
+<% end %>
+
 </br>
 
 <% if !user_signed_in? %>
