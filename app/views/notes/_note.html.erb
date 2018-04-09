@@ -10,7 +10,11 @@
       <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note) %>
       </li>
 
+      <%if note.photo.present? %>
+      
       <%= image_tag(note.photo, {class:"note-index-photo"}) %>
+
+      <% end %>
 
         <li>
         <p><%= truncate(note.content, :length=>300, :escape=>false)  %></p>

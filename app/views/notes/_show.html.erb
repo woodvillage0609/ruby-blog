@@ -5,12 +5,16 @@
 <h3><strong><%= @note.title %></strong></h3>
 </li>
 
-<li style="text-align:right;vertical-align:bottom; color:#808080;float:right;">
+<li style="vertical-align:bottom; color:#808080;">
 <%= @note.created_at.to_formatted_s(:without_second) %>
 </li>
 </ul>
 
+<% if @note.photo.present? %>
+
 <%= image_tag(@note.photo, {class:"note-index-photo"}) %>
+
+<%end%>
 
 <ul>
 <li>

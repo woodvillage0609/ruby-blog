@@ -1,14 +1,13 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index, :notes_by_month, :notes_by_category, :notes_by_photo, :notes_by_photo_order, :notes_by_photo_random]
+  before_action :category_split, only: [:show, :index, :notes_by_month, :notes_by_category]
   # GET /notes
   # GET /notes.json
   def index
     @notes = Note.page(params[:page]).per(7).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
-    @categories = Note.group(:category).count(:category)
-
   end
 
   def notes_by_month
@@ -23,29 +22,27 @@ class NotesController < ApplicationController
     @notes = Note.page(params[:page]).where("category = ?", params[:id]).order(created_at: :desc)
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
-    @categories = Note.group(:category).count(:category)
     render 'index'
   end
 
   def notes_by_photo
-    @notes = Note.page(params[:page]).per(18).order(created_at: :desc)
+    @notes = Note.page(params[:page]).per(18).where.not(category: "メモ").order(created_at: :desc)
   end
 
   def notes_by_photo_order
-    @notes = Note.all.order(created_at: :desc)
+    @notes = Note.all.where.not(category: "メモ").order(created_at: :desc)
   end
 
   def notes_by_photo_random
-    @notes = Note.all.order("RAND()")
+    @notes = Note.all.where.not(category: "メモ").order("RAND()")
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
-    @random_notes=Note.where.not(id:@note).order("RAND()")
+    @random_notes=Note.where.not(id:@note).where.not(category: "メモ").order("RAND()")
     @notes_by_month = Note.all.order(created_at: :desc).group_by { |note| note.created_at.beginning_of_month }
     @notes_recent = Note.all.limit(5).order(created_at: :desc)
-    @categories = Note.group(:category).count(:category)
   end
 
   # GET /notes/new
@@ -107,4 +104,11 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(:title, :content, :category, :photo)
     end
+
+    # カテゴリー一覧の加工作業。２区分に分けるべく、where, where.notで調整。
+    def category_split
+      @categories = Note.where.not(["(category= ?) OR (category= ?)", "食べ物","メモ"]).group(:category).count(:category)
+      @category_others = Note.where(["(category= ?) OR (category= ?)", "食べ物","メモ"]).group(:category).count(:category)
+    end
+
 end
