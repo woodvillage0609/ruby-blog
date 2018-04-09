@@ -29,7 +29,6 @@ class NotesController < ApplicationController
 
   def notes_by_photo
     @notes = Note.page(params[:page]).per(18).order(created_at: :desc)
-
   end
 
   def notes_by_photo_order

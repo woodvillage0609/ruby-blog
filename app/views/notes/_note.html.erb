@@ -12,8 +12,8 @@
 
       <%= image_tag(note.photo, {class:"note-index-photo"}) %>
 
-        <li style="padding-top:20px; font-size:16px;" >
-        <p><%= truncate(note.content, :length=>500, :escape=>false)  %></p>
+        <li>
+        <p><%= truncate(note.content, :length=>300, :escape=>false)  %></p>
         </li>
 
 <% if user_signed_in? %>
