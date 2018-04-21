@@ -7,8 +7,12 @@
         <%=link_to note.title, note_path(note), class:"black" %>
         </strong></h3>
 
+        <br>
+
       <%=link_to note.created_at.to_formatted_s(:without_second), note_path(note) %>
       </li>
+
+      <br>
 
       <%if note.photo.present? %>
       
