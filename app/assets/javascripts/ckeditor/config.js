@@ -8,7 +8,11 @@ CKEDITOR.editorConfig = function( config )
   // Define changes to default configuration here. For example:
   // config.language = 'fr';
   // config.uiColor = '#AADC6E';
-  config.height ="500px"
+  config.height ="500px";
+
+  config.extraPlugins = 'codesnippet,button,clipboard,dialogui,lineutils,notification,toolbar,widgetselection';
+
+  config.codeSnippet_theme = 'monokai';
 
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
@@ -37,3 +41,8 @@ CKEDITOR.editorConfig = function( config )
   // Toolbar groups configuration.
   
 };
+
+/**
+ * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+ */
