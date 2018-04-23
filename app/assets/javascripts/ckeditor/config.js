@@ -11,6 +11,7 @@ CKEDITOR.editorConfig = function( config )
   config.height ="500px";
 
   config.extraPlugins = 'codesnippet,button,clipboard,dialogui,lineutils,notification,toolbar,widgetselection';
+
   config.codeSnippet_theme = 'monokai';
 
   /* Filebrowser routes */
