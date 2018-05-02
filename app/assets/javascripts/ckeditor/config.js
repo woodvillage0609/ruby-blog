@@ -10,9 +10,10 @@ CKEDITOR.editorConfig = function( config )
   // config.uiColor = '#AADC6E';
   config.height ="500px";
 
-  config.extraPlugins = 'codesnippet,button,clipboard,dialogui,lineutils,notification,toolbar,widgetselection';
+  config.extraPlugins = 'codesnippet,widget,widgetselection,toolbar,notification,lineutils,dialogui,clipboard,button';
+  // dialogだけは、pluginフォルダ内に入れていない。そっちの方が何故か上手くいくので。
 
-  config.codeSnippet_theme = 'monokai';
+  config.codeSnippet_theme = 'monokai_sublime';
 
   /* Filebrowser routes */
   // The location of an external file browser, that should be launched when "Browse Server" button is pressed.
