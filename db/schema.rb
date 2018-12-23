@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180313112428) do
   end
 
   create_table "categories", force: :cascade do |t|
+    t.string   "category",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "name",       limit: 255
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180313112428) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.string   "name",                   limit: 255
+    t.string   "image",                  limit: 255
     t.text     "profile",                limit: 65535
     t.string   "image_file_name",        limit: 255
     t.string   "image_content_type",     limit: 255
