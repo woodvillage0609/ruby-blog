@@ -29,11 +29,13 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 
 gem 'rails_admin'
 
-gem 'paperclip'
+#gem 'paperclip'
+gem "paperclip", ">= 5.2.0"
 
 gem 'rails_12factor', '~> 0.0.3', group: :production
 
-gem 'aws-sdk', '< 2.0'
+#gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk-s3', '~> 1.30'
 
 gem 'kaminari'
 
