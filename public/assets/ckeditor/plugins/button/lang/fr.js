@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","fr",{selectedLabel:"%1 (S\xe9lectionn\xe9)"});

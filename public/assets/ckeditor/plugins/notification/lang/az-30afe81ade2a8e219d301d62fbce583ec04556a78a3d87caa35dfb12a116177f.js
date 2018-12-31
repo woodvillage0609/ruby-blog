@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","az",{closed:"X\u0259b\u0259rdarl\u0131q p\u0259nc\u0259r\u0259si ba\u011flan\u0131b"});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","es",{closed:"Notificaci\xf3n cerrada."});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","ko",{closed:"\uc54c\ub9bc\uc774 \ub2eb\ud798."});

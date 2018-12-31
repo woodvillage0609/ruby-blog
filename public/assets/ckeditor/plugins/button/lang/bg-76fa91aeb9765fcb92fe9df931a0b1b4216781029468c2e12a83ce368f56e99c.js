@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","bg",{selectedLabel:"%1 (\u0418\u0437\u0431\u0440\u0430\u043d\u043e)"});

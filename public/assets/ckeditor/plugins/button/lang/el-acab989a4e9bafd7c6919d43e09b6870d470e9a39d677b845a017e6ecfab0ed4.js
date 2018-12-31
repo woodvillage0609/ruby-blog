@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","el",{selectedLabel:"%1 (\u0395\u03c0\u03b9\u03bb\u03b5\u03b3\u03bc\u03ad\u03bd\u03bf)"});

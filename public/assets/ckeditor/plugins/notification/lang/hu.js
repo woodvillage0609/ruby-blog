@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","hu",{closed:"\xc9rtes\xedt\xe9s bez\xe1rva."});

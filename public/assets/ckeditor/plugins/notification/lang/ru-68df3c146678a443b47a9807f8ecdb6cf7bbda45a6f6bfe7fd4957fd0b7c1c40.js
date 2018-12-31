@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","ru",{closed:"\u0423\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u0437\u0430\u043a\u0440\u044b\u0442\u043e"});

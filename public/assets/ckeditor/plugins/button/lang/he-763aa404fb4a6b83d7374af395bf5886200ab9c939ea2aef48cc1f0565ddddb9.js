@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","he",{selectedLabel:"1% (\u05e1\u05d5\u05de\u05df)"});

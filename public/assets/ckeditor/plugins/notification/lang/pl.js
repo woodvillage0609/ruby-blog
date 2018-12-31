@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","pl",{closed:"Powiadomienie zosta\u0142o zamkni\u0119te."});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","zh-cn",{selectedLabel:"\u5df2\u9009\u4e2d %1 \u9879"});

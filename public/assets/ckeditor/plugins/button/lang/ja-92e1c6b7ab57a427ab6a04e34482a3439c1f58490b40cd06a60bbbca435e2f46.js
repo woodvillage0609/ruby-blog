@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","ja",{selectedLabel:"%1 (\u9078\u629e\u4e2d)"});
