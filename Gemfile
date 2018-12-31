@@ -35,9 +35,9 @@ gem "paperclip", ">= 5.2.0"
 gem 'rails_12factor', '~> 0.0.3', group: :production
 
 #gem 'aws-sdk', '< 2.0'
-#gem 'aws-sdk-s3', '~> 1.30'
+gem 'aws-sdk-s3', '~> 1.30'
 #gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
-gem 'aws-sdk-resources', '~> 3.36'
+#gem 'aws-sdk-resources', '~> 3.36'
 
 gem 'kaminari'
 
