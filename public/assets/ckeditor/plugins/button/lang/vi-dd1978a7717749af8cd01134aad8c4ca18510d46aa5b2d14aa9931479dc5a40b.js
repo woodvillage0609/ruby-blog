@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","vi",{selectedLabel:"%1 (\u0110\xe3 ch\u1ecdn)"});

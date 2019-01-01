@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","tr",{closed:"Uyar\u0131lar kapat\u0131ld\u0131."});

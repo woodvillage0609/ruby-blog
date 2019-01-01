@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","ru",{selectedLabel:"%1 (\u0412\u044b\u0431\u0440\u0430\u043d\u043e)"});

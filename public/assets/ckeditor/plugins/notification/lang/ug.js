@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","ug",{closed:"\u0626\u0648\u0642\u062a\u06c7\u0631\u06c7\u0634 \u062a\u0627\u0642\u0627\u0644\u062f\u0649."});

@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","hr",{button:"Ubaci isje\u010dak k\xf4da",codeContents:"Sadr\u017eaj k\xf4da",emptySnippetError:"Isje\u010dak k\xf4da ne mo\u017ee biti prazan.",language:"Jezik",title:"Isje\u010dak k\xf4da",pathName:"isje\u010dak k\xf4da"});

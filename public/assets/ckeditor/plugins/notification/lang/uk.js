@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("notification","uk",{closed:"\u0421\u043f\u043e\u0432\u0456\u0449\u0435\u043d\u043d\u044f \u0437\u0430\u043a\u0440\u0438\u0442\u043e."});

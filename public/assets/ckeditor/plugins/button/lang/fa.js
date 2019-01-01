@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","fa",{selectedLabel:"%1 (\u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u062f\u0647)"});

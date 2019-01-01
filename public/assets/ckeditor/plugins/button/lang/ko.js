@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","ko",{selectedLabel:"%1 (\uc120\ud0dd\ub428)"});

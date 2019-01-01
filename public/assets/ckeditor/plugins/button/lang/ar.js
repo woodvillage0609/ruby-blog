@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("button","ar",{selectedLabel:"%1 (\u0645\u062d\u062f\u062f)"});
