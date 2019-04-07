@@ -1,0 +1,56 @@
+<%= form_for(@map) do |f| %>
+  <% if @map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@map.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+      <ul>
+      <% @map.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style="padding-bottom:20px;">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control"  %>
+  </div>
+
+  <div class="field" style="padding-bottom:20px;" >
+    <%= f.label :rating %><br>
+    <%= f.hidden_field :rating %>
+    <div id='star-rating'></div>
+  </div>
+
+    <div class="field" style="padding-bottom:20px;">
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="field" style="padding-bottom:20px;">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment, class: "form-control" %>
+  </div>
+  <div class="field" style="padding-bottom:20px;">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+  <div class="field" style="padding-bottom:20px;">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field" style="padding-bottom:20px;">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="actions" style="padding-bottom:20px;">
+    <%= f.submit class: "btn btn-success", :style=>"padding:10px 30px;" %>
+  </div>
+<% end %>
+
+<script>
+$('#star-rating').raty({
+  path: '/assets/',
+  scoreName: 'map[rating]' 
+});
+</script>

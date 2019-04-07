@@ -3,13 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
 has_many :notes
-has_many :articles
+has_many :maps
 
-  devise :database_authenticatable, :registerable,
+devise :database_authenticatable, :registerable,
          :validatable
 
-  has_attached_file :image
+has_attached_file :image
 
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
    
 end
