@@ -30,6 +30,21 @@
     <%= f.file_field :photo %>
   </div>
 
+   <div class="field" style="padding-bottom:20px;" >
+
+    <%= f.label :rating %><br>
+    <%= f.hidden_field :rating %>
+    <div id='star-rating'></div>
+
+  </div>
+
+   <div class="field" style="padding-bottom:20px;">
+
+    <%= f.label :address %><br>
+    <%= f.text_field :address, class: "form-control" %>
+    
+  </div>
+
   <div class="field" style="padding-bottom:20px;">
 
     <%= f.label :category %><br>
@@ -44,3 +59,10 @@
   </div>
 
 <% end %>
+
+<script>
+$('#star-rating').raty({
+  path: '/assets/',
+  scoreName: 'note[rating]' 
+});
+</script>

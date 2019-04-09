@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181229140810) do
-
-  create_table "articles", force: :cascade do |t|
-    t.string   "image",      limit: 255
-    t.string   "title",      limit: 255
-    t.text     "content",    limit: 65535
-    t.string   "url",        limit: 255
-    t.string   "source",     limit: 255
-    t.text     "comment",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "user_id",    limit: 4
-  end
+ActiveRecord::Schema.define(version: 20190404225317) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -45,6 +33,22 @@ ActiveRecord::Schema.define(version: 20181229140810) do
 
   add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type", using: :btree
 
+  create_table "maps", force: :cascade do |t|
+    t.string   "title",              limit: 255
+    t.integer  "rating",             limit: 4
+    t.text     "comment",            limit: 65535
+    t.string   "address",            limit: 255
+    t.float    "latitude",           limit: 24
+    t.float    "longitude",          limit: 24
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 8
+    t.datetime "photo_updated_at"
+    t.integer  "user_id",            limit: 4
+  end
+
   create_table "notes", force: :cascade do |t|
     t.string   "title",              limit: 255
     t.text     "content",            limit: 65535
@@ -55,6 +59,11 @@ ActiveRecord::Schema.define(version: 20181229140810) do
     t.string   "photo_content_type", limit: 255
     t.integer  "photo_file_size",    limit: 4
     t.datetime "photo_updated_at"
+    t.integer  "rating",             limit: 4
+    t.string   "address",            limit: 255
+    t.float    "latitude",           limit: 24
+    t.float    "longitude",          limit: 24
+    t.integer  "user_id",            limit: 4
   end
 
   create_table "users", force: :cascade do |t|

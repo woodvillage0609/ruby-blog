@@ -43,6 +43,10 @@ gem 'hirb', '~> 0.7.3'
 
 gem 'hirb-unicode', '~> 0.0.5'
 
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+
+gem 'geocoder', '~> 1.5', '>= 1.5.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

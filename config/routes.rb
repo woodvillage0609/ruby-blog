@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :maps
   mount Ckeditor::Engine => '/ckeditor'
-  
-  resources :articles do
-    member do
-      get:articles_random
-      get:articles_order
-    end
-  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
@@ -22,6 +16,7 @@ Rails.application.routes.draw do
     get:notes_by_photo
     get:notes_by_photo_order
     get:notes_by_photo_random
+    get:notes_by_map
   end
 end
 

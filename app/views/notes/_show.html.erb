@@ -21,9 +21,30 @@
   <p><%= @note.content.html_safe %></p>
 </li>
 
+<div id="map" style='width: 100%; height: 380px;'></div>
+ 
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+        {
+          "lat": <%= @note.latitude %>,
+          "lng": <%= @note.longitude %>,
+          "infowindow": '<p><%= image_tag(@note.photo, {class:"infowindow-photo"}) %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@note.latitude},#{@note.longitude}&iwloc=J",target: "_blank" %></p>'
+        }
+    
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(14);
+    });
+  </script>
+
 <li>
 
-<table style="width:100%;">
+<li class="star-rating" data-score=<%= @note.rating %>></li>
+
+<table style="width:100%; margin-top:10px;">
 <% if user_signed_in? %>
 
 
@@ -76,4 +97,12 @@
 
 </div>
 
-
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
