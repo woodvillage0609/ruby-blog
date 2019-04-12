@@ -47,8 +47,6 @@ gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
 
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
