@@ -8,9 +8,8 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-  <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyBOHVCZKRCQOzi0eNEg-bLvZiaRW2NPGrg" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <%= csrf_meta_tags %>
 
@@ -51,7 +50,6 @@
 
 
   <!-- ckeditorのcodesnippet用　highlight.jsの貼り付け -->
-
 
 </head>
 
@@ -157,7 +155,6 @@
 <div class="col-md-1 col-xs-0"></div>
 
 </div>
-
 
 </body>
 </html>
