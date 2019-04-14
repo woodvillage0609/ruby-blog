@@ -1,13 +1,13 @@
 
 <div id="map" style="width: 100%; height: 600px;"></div>
-
-<script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(5);
-    handler.map.centerOn({lat:48.137393, lng:11.575449}); 
-  });
-</script>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
+    async defer></script>
