@@ -11,7 +11,7 @@
           zoom: 5
         });
 
-        var markers = [];
+      var markers = [];
     	<% @notes.all.each do |f| %>
      	 markers.push(new google.maps.Marker({
          position: {lat: <%= f.latitude %>, lng: <%= f.longitude %>},
@@ -22,9 +22,7 @@
 
       }
 
-
     </script>
-
 
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
     async defer></script>
