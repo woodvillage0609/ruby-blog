@@ -1,13 +1,30 @@
 
 <div id="map" style="width: 100%; height: 600px;"></div>
+
     <script>
       var map;
+      var marker;
+
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat: 48.137393, lng: 11.575449},
+          zoom: 5
         });
+
+        var markers = [];
+    	<% @notes.all.each do |f| %>
+     	 markers.push(new google.maps.Marker({
+         position: {lat: <%= f.latitude %>, lng: <%= f.longitude %>},
+         map: map
+         })
+      );
+    <% end %>    
+
       }
+
+
     </script>
+
+
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
     async defer></script>
