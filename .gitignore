@@ -12,5 +12,4 @@
 !/log/.keep
 /tmp
 
-#envファイルをgitにプッシュしないようにするために追加
-/.env.local
+/.env

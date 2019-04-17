@@ -40,33 +40,6 @@ class NotesController < ApplicationController
   def notes_by_map
     @notes = Note.all
 
-    @hash = Gmaps4rails.build_markers(@notes) do |place, marker|
-      marker.lat place.latitude
-      marker.lng place.longitude
-
-      if place.category == "食べ物"
-        url_plot = "http://www.myiconfinder.com/uploads/iconsets/48-48-bf6fdb9e155cdfb77c724ba772d0e6f8-star.png"
-
-      else
-        url_plot = "http://www.myiconfinder.com/uploads/iconsets/48-48-369f997cef4f440c5394ed2ae6f8eecd.png"
-
-      end
-
-      #PlotのMarkerを変更
-      marker.picture({  
-      
-        #url: "http://www.myiconfinder.com/uploads/iconsets/64-64-369f997cef4f440c5394ed2ae6f8eecd.png",
-        #url: "http://www.myiconfinder.com/uploads/iconsets/48-48-82e4254475da730a5e11a7fc3ca487da-star.png",
-        url: url_plot,
-        width: 48,  
-        height: 48,
-      }) 
-
-      #Mapのプロットのウィンドウの表示設定
-      marker.infowindow render_to_string(:partial => "/notes/infowindow",   
-        :locals => {:name => place.title, :rating => place.rating, :picture =>place.photo, :id =>place.id}) 
-    end
-
   end
 
   # GET /notes/1
