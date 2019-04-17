@@ -3,7 +3,6 @@
 
     <script>
       var map;
-      var marker;
 
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -11,18 +10,32 @@
           zoom: 5
         });
 
-      var markers = [];
-    	<% @notes.all.each do |f| %>
-     	 markers.push(new google.maps.Marker({
-         position: {lat: <%= f.latitude %>, lng: <%= f.longitude %>},
-         map: map
-         })
-      );
-    <% end %>    
+        <% @notes.each do |note| %>
+        (function(){
+          var contentString = '<%= link_to image_tag(note.photo,{class:"infowindow-photo"}), note_path(note) %>'; 
+          var infowindow = new google.maps.InfoWindow({
+              content: contentString
+          });
+
+          var marker = new google.maps.Marker({
+              position:{lat: <%= note.latitude %>, lng: <%= note.longitude %>},
+              map: map,
+              title: contentString,
+          });
+          marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+          })();
+
+      <% end %>
+    
 
       }
 
     </script>
 
+
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
     async defer></script>
+
+  

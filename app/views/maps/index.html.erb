@@ -3,17 +3,6 @@
 <div id="map" style="width: 100%; height: 600px;"></div>
 
 
-<script>
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(13);
-    handler.map.centerOn({lat:35.681236, lng:139.767125}); 
-  });
-</script>
-
 <h1>Listing Maps</h1>
 
 <table>

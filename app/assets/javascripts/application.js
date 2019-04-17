@@ -16,6 +16,4 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require ckeditor/init
-//= require underscore
-//= require gmaps/google
 //= require_tree .

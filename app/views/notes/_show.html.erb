@@ -34,17 +34,28 @@
           zoom: 14
         });
 
+        var contentString = '<%= image_tag(@note.photo,{class:"infowindow-photo"}) %>'
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString    
+        });
+
         var marker = new google.maps.Marker({
           position: myLatLng,
-          map: map,
+          map: map
         });  
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
 
       }
 
-    </script>
+  </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
     async defer></script>
+
 
 
 <li>
