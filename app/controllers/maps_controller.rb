@@ -6,15 +6,6 @@ class MapsController < ApplicationController
   # GET /maps.json
   def index
     @maps = Map.all
-
-    @hash = Gmaps4rails.build_markers(@maps) do |place, marker|
-      marker.lat place.latitude
-      marker.lng place.longitude
-
-      #Mapのプロットのウィンドウの表示設定
-      marker.infowindow render_to_string(:partial => "/maps/infowindow",   
-        :locals => {:name => place.title, :rating => place.rating, :picture =>place.photo, :id =>place.id}) 
-    end
     
   end
 

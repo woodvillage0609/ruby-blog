@@ -11,24 +11,39 @@
         });
 
         <% @notes.each do |note| %>
+
         (function(){
           var contentString = '<%= link_to image_tag(note.photo,{class:"infowindow-photo"}), note_path(note) %>'; 
+
+
           var infowindow = new google.maps.InfoWindow({
               content: contentString
           });
 
+          var markerIcon = {
+
+            url: 'https://image0.flaticon.com/icons/svg/252/252025.svg',
+            scaledSize: new google.maps.Size(40, 40),
+            origin: new google.maps.Point(0, 0), 
+            anchor: new google.maps.Point(20,45)
+
+            }
+
           var marker = new google.maps.Marker({
               position:{lat: <%= note.latitude %>, lng: <%= note.longitude %>},
               map: map,
+              icon: markerIcon,
               title: contentString,
+              animation: google.maps.Animation.DROP
           });
+
           marker.addListener('click', function() {
                 infowindow.open(map, marker);
             });
+
           })();
 
       <% end %>
-    
 
       }
 
