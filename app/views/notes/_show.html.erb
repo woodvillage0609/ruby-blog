@@ -40,23 +40,31 @@
           content: contentString    
         });
 
+        var markerIcon = {
+
+            url: 'https://cdn4.iconfinder.com/data/icons/peppyicons/512/660011-location-512.png',
+            scaledSize: new google.maps.Size(45, 45),
+            origin: new google.maps.Point(0, 0), 
+            anchor: new google.maps.Point(20,45)
+
+            }
+
         var marker = new google.maps.Marker({
           position: myLatLng,
-          map: map
+          map: map,
+          icon: markerIcon
         });  
 
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
-
+s
       }
 
   </script>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
     async defer></script>
-
-
 
 <li>
 
@@ -118,6 +126,7 @@
 <script>
     $('.star-rating').raty({
       path: '/assets/',
+      half: true,
       readOnly: true,
       score: function() {
             return $(this).attr('data-score');

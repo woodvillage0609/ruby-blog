@@ -2,6 +2,62 @@
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 
+<script>
+      var map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35.681236, lng: 139.767125},
+          zoom: 13
+        });
+
+        <% @maps.each do |map| %>
+
+        (function(){
+          var contentString = '<%= link_to image_tag(map.photo,{class:"infowindow-photo"}), map_path(map) %>'+
+          '<br>'+
+          '<%= map.rating %>'; 
+
+          var infowindow = new google.maps.InfoWindow({
+              content: contentString
+          });
+
+          var markerIcon = {
+
+            url: 'https://cdn4.iconfinder.com/data/icons/real-estate-1-8/512/46-512.png',
+            scaledSize: new google.maps.Size(40, 40),
+            origin: new google.maps.Point(0, 0), 
+            anchor: new google.maps.Point(20,45)
+
+            }
+
+          var marker = new google.maps.Marker({
+              position:{lat: <%= map.latitude %>, lng: <%= map.longitude %>},
+              map: map,
+              icon: markerIcon,
+              title: contentString,
+              animation: google.maps.Animation.DROP
+          });
+
+          lastWindow=null; 
+
+          marker.addListener('click', function() {
+                if (lastWindow) lastWindow.close();
+                infowindow.open(map, marker);
+                lastWindow=infowindow;
+            });
+
+          })();
+
+      <% end %>
+
+      }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
+    async defer></script>
+
 
 <h1>Listing Maps</h1>
 
@@ -47,6 +103,7 @@
 
 <script>
     $('.star-rating').raty({
+      half: true,
       path: '/assets/',
       readOnly: true,
       score: function() {

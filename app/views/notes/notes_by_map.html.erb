@@ -13,8 +13,9 @@
         <% @notes.each do |note| %>
 
         (function(){
-          var contentString = '<%= link_to image_tag(note.photo,{class:"infowindow-photo"}), note_path(note) %>'; 
-
+          var contentString = '<%= link_to image_tag(note.photo,{class:"infowindow-photo"}), note_path(note) %>'+
+          '<br>'+
+          '<%= note.rating %>'; 
 
           var infowindow = new google.maps.InfoWindow({
               content: contentString
@@ -22,10 +23,10 @@
 
           var markerIcon = {
 
-            url: 'https://image0.flaticon.com/icons/svg/252/252025.svg',
+            url: 'https://cdn1.iconfinder.com/data/icons/flat-design-basic-set-5/24/flag-red-rally-512.png',
             scaledSize: new google.maps.Size(40, 40),
             origin: new google.maps.Point(0, 0), 
-            anchor: new google.maps.Point(20,45)
+            anchor: new google.maps.Point(10,45)
 
             }
 
@@ -37,8 +38,12 @@
               animation: google.maps.Animation.DROP
           });
 
+          lastWindow=null; 
+
           marker.addListener('click', function() {
+                if (lastWindow) lastWindow.close();
                 infowindow.open(map, marker);
+                lastWindow=infowindow;
             });
 
           })();
@@ -48,7 +53,6 @@
       }
 
     </script>
-
 
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
     async defer></script>
