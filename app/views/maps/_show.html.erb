@@ -1,0 +1,125 @@
+<div class="map-show">
+
+<%= image_tag(@map.photo, {:class=>"map-photo"}) %>
+
+<ul style="padding:10px;">
+
+<li style="font-size:25px;">
+  <strong><%= @map.title %></strong>
+</li>
+
+<br>
+
+<table class="overview";>
+  <tr style="border-top:1px solid #EEEEEE;">
+    <td style="width:200px;">
+      <li><strong>事業主</strong></li>
+    </td>
+    <td><%= @map.owner %></td>
+  </tr>
+  <tr>
+    <td><li><strong>用途</strong></li></td>
+    <td><%= @map.use %></td>
+  </tr>
+  <tr>
+    <td><li><strong>竣工予定年</strong></li></td>
+    <td><%= @map.completion %>年</td>
+  </tr>
+  <tr>
+    <td><li><strong>延べ床面積</strong></li></td>
+    <td>約 <%= @map.area.to_s(:delimited) %>㎡</td>
+  </tr>
+  <tr>
+    <td><li><strong>階数</strong></li></td>
+    <td><%= @map.floor %>階</td>
+  </tr>
+  <tr>
+    <td><li><strong>詳細情報</strong></li></td>
+    <td><%= link_to "詳細情報はこちら", @map.url, :target=>"_blank" %></td>
+  </tr>
+  <tr>
+    <td>
+      <li><strong>完成イメージ</strong></li>
+    </td>
+    <td><%= image_tag(@map.image,{:style=>"width:100%;"}) %></td>
+  </tr>
+</table>
+
+<br>
+
+<div id="map" class="map"></div>
+ 
+<script>
+
+      function initMap() {
+
+        var myLatLng = {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: myLatLng,
+          zoom: 14
+        });
+
+        var contentString = '<%= image_tag(@map.photo,{class:"infowindow-photo"}) %>'
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString    
+        });
+
+        var markerIcon = {
+
+            url: 'https://cdn4.iconfinder.com/data/icons/peppyicons/512/660011-location-512.png',
+            scaledSize: new google.maps.Size(45, 45),
+            origin: new google.maps.Point(0, 0), 
+            anchor: new google.maps.Point(20,45)
+
+            }
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: markerIcon
+        }); 
+
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+      }
+
+</script>
+
+<br>
+
+<table style="position:relative; width:100%;">
+  <tr>
+  <td>
+  <%= image_tag(@map.user.image, {:style=>"height:50px; width:50px; border-radius:50%; position:absolute; top:0px"}) %></td>
+
+  <td style="padding-left:70px;height:50px;">
+    <%= @map.comment.html_safe %></td>
+  </tr>
+</table>
+
+<li style="padding-top:20px;">
+   <%= render 'reviews/form' %>
+</li>
+
+<li>
+  <p style="text-align:center;width:100%; border-bottom:1px dotted #808080; font-size:15px;"> コメント一覧　<%= @map.reviews.count %>件</p>
+  <%= render @map.reviews.order(created_at: :desc) %>
+</li>
+
+<br>
+
+<li style="position:absolute;right:10px;bottom:5px;">
+  <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_map_path(@map) %> | <%= link_to 'Destroy', map_path(@map), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</li>
+
+<li style="position:absolute;left:10px;bottom:5px;"><%= link_to 'Back', maps_path %></li>
+
+</ul>
+
+</div>

@@ -15,7 +15,7 @@
         (function(){
           var contentString = '<%= link_to image_tag(note.photo,{class:"infowindow-photo"}), note_path(note) %>'+
           '<br>'+
-          '<%= note.rating %>'; 
+          '<strong><%= note.title %></strong'; 
 
           var infowindow = new google.maps.InfoWindow({
               content: contentString
@@ -23,10 +23,10 @@
 
           var markerIcon = {
 
-            url: 'https://cdn1.iconfinder.com/data/icons/flat-design-basic-set-5/24/flag-red-rally-512.png',
-            scaledSize: new google.maps.Size(40, 40),
-            origin: new google.maps.Point(0, 0), 
-            anchor: new google.maps.Point(10,45)
+              url: 'https://cdn1.iconfinder.com/data/icons/flat-design-basic-set-5/24/flag-red-rally-512.png',
+              scaledSize: new google.maps.Size(40, 40),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(10,45)
 
             }
 
@@ -53,8 +53,5 @@
       }
 
     </script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
-    async defer></script>
 
   

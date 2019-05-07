@@ -1,49 +1,30 @@
-<div class="map-show">
+<div class="row" style="background-color:#F0F0F0;">
 
-<%= image_tag(@map.photo, {:style=>"width:100%; border-radius:5px 5px 0px 0px;"}) %>
+<div class="col-md-8">
 
-<ul style="padding:10px;">
+<%= render 'show' %>
 
-<li style="font-size:25px;">
-  <strong><%= @map.title %></strong>
-</li>
+</div>
 
-<p>
-  <strong>Rating:</strong>
-  <div class='star-rating' data-score=<%= @map.rating %>></div>
-</p>
+<div class="col-md-4" style="margin-top:30px;">
+	
+<% @random_maps.limit(3).each do |random_map| %>
 
-<script>
-    $('.star-rating').raty({
-      half: true,
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
-</script>
+<div class="side_map_show">	
+<%=link_to image_tag(random_map.photo, {class:"map-photo"}), map_path(random_map) %>
 
+<ul style="padding:5px;text-align:left;">
 <li>
-<table style="position:relative; width:100%;">
-  <tr>
-  <td>
-  <%= image_tag(@map.user.image, {:style=>"height:50px; width:50px; border-radius:50%; position:absolute; top:0px"}) %></td>
-
-  <td style="padding-left:70px;height:50px;">
-    <%= simple_format(@map.comment) %></td>
-  </tr>
+<%= link_to random_map.title, map_path(random_map), class:"black", :style=>"font-size:16px;" %>
 </li>
-</table>
+<li>
+竣工予定　<%= random_map.completion %>年
+</li>
+</ul>
+</div>
 
-<div id="map" style='width: 100%; height: 600px;'></div>
- 
-  
-
-<% if user_signed_in? %>
-<%= link_to 'Edit', edit_map_path(@map) %> |
 <% end %>
 
-<%= link_to 'Back', maps_path %>
+</div>
 
 </div>

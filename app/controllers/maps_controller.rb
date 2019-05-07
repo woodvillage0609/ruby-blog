@@ -5,13 +5,14 @@ class MapsController < ApplicationController
   # GET /maps
   # GET /maps.json
   def index
-    @maps = Map.all
+    @maps = Map.all.order(created_at: :desc)
     
   end
 
   # GET /maps/1
   # GET /maps/1.json
   def show
+    @random_maps = Map.where.not(id:@map).order("RAND()")
 
   end
 
@@ -73,6 +74,6 @@ class MapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
-      params.require(:map).permit(:title, :rating, :comment, :address, :latitude, :longitude, :photo)
+      params.require(:map).permit(:title, :rating, :comment, :address, :latitude, :longitude, :photo, :owner, :use, :completion, :area, :floor, :image, :url)
     end
 end

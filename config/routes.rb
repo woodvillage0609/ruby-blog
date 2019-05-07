@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :maps
+  get 'reviews/create'
+
+  get 'reviews/destroy'
+
   mount Ckeditor::Engine => '/ckeditor'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -9,6 +12,10 @@ Rails.application.routes.draw do
   resources :categories
   
   root 'notes#index'
+
+  resources :maps do
+    resources :reviews
+  end
 
   resources :notes do
     member do
