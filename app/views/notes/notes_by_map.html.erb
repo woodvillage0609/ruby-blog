@@ -7,7 +7,8 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 48.137393, lng: 11.575449},
-          zoom: 5
+          zoom: 5,
+          
         });
 
         <% @notes.each do |note| %>
@@ -20,15 +21,14 @@
           var infowindow = new google.maps.InfoWindow({
               content: contentString
           });
-
+          
           var markerIcon = {
-
               url: 'https://cdn1.iconfinder.com/data/icons/flat-design-basic-set-5/24/flag-red-rally-512.png',
               scaledSize: new google.maps.Size(40, 40),
               origin: new google.maps.Point(0, 0),
               anchor: new google.maps.Point(10,45)
-
-            }
+          }
+          
 
           var marker = new google.maps.Marker({
               position:{lat: <%= note.latitude %>, lng: <%= note.longitude %>},

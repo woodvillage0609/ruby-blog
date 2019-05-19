@@ -42,14 +42,14 @@
     <td>
   <div class="field" style="padding-bottom:20px;">
     <%= f.label :latitude %><br>
-    <%= f.text_field :latitude %>
+    <%= f.text_field :latitude, class: "form-control"  %>
   </div>
 </td>
 <td style="width:50px;"></td>
 <td>
   <div class="field" style="padding-bottom:20px;">
     <%= f.label :longitude %><br>
-    <%= f.text_field :longitude %>
+    <%= f.text_field :longitude, class: "form-control"  %>
   </div>
 </td>
 </tr>
@@ -60,9 +60,9 @@
     <%= f.text_field :owner, class: "form-control" %>
   </div>
 
-  <div class="field" style="padding-bottom:20px;">
+  <div class="field" style="padding-bottom:20px; width:40%;">
     <%= f.label :completion %><br>
-    <%= f.select :completion, [["2018年","2018"],["2019年","2019"],["2020年","2020"],["2021年","2021"],["2022年","2022"],["2023年","2023"]],{include_blank:"選択してください"} %>
+    <%= f.select :completion, [["2018年","2018"],["2019年","2019"],["2020年","2020"],["2021年","2021"],["2022年","2022"],["2023年","2023"]],{include_blank:"選択してください"}, class: "form-control"  %>
   </div>
 
   <div class="field" style="padding-bottom:20px;">
@@ -72,12 +72,12 @@
 
   <div class="field" style="padding-bottom:20px;">
     <%= f.label :area %><br>
-    <%= f.text_field :area %>
+    <%= f.text_field :area, class: "form-control"  %>
   </div>
 
-  <div class="field" style="padding-bottom:20px;">
+  <div class="field" style="padding-bottom:20px;width:40%;">
     <%= f.label :floor %><br>
-    <%= f.number_field :floor %>
+    <%= f.number_field :floor, class: "form-control"  %>
   </div>
 
   <div class="field" style="padding-bottom:20px;">
