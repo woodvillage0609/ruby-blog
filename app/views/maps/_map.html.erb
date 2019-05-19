@@ -1,0 +1,29 @@
+<h2 style="text-align:center;">Listing Maps</h2>
+
+<% @maps.each do |map| %>
+
+  <div class="maps_by_photo_list">
+
+    <div class="maps_by_photo_border">
+    
+      <%=link_to image_tag(map.photo, {:style=>"width:100%;"}), map %>
+
+      <ul style="padding:5px;">
+
+      <li><%= map.title%></li>
+      <li class='star-rating' data-score=<%= map.rating %>></li>
+     
+      <% if user_signed_in? %>
+      <li style="position:absolute;right:5px;bottom:5px;"><%= link_to 'Edit', edit_map_path(map) %> |
+      <%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+      
+      <% end %>
+          
+    </div>
+
+  </div>
+
+  <% end %>
+  </tbody>
+</table>

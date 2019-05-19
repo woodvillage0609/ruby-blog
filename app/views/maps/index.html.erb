@@ -2,51 +2,64 @@
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 
+<script>
+      var map;
 
-<h1>Listing Maps</h1>
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35.681236, lng: 139.767125},
+          zoom: 13
+        });
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Rating</th>
-      <th>Comment</th>
-      <th>Address</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @maps.each do |map| %>
 
-  <tbody>
-    <% @maps.each do |map| %>
-      <tr>
-        <td><%= map.title %></td>
-        <td class='star-rating' data-score=<%= map.rating %>></td>
-        <td><%= map.comment %></td>
-        <td><%= map.address %></td>
-        <td><%= map.latitude %></td>
-        <td><%= map.longitude %></td>
-        <td><%= link_to 'Show', map %></td>
-       
-        <% if user_signed_in? %>
-        <td><%= link_to 'Edit', edit_map_path(map) %></td>
-        <td><%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        (function(){
+          var contentString = '<%= link_to image_tag(map.photo,{class:"infowindow-photo"}), map_path(map) %>'+
+          '<br>'+
+          '<strong><%= map.title %></strong>'; 
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          var infowindow = new google.maps.InfoWindow({
+              content: contentString
+          });
 
-<br>
+          var markerIcon = {
 
-<% if user_signed_in? %>
-<%= link_to 'New Map', new_map_path %>
-<% end %>
+            url: 'https://cdn4.iconfinder.com/data/icons/real-estate-1-8/512/46-512.png',
+            scaledSize: new google.maps.Size(40, 40),
+            origin: new google.maps.Point(0, 0), 
+            anchor: new google.maps.Point(20,45)
+
+            }
+
+          var marker = new google.maps.Marker({
+              position:{lat: <%= map.latitude %>, lng: <%= map.longitude %>},
+              map: map,
+              icon: markerIcon,
+              title: contentString,
+              animation: google.maps.Animation.DROP
+          });
+
+          lastWindow=null; 
+
+          marker.addListener('click', function() {
+                if (lastWindow) lastWindow.close();
+                infowindow.open(map, marker);
+                lastWindow=infowindow;
+            });
+
+          })();
+
+      <% end %>
+
+      }
+
+</script>
+
+<%= render 'map' %>
 
 <script>
     $('.star-rating').raty({
+      half: true,
       path: '/assets/',
       readOnly: true,
       score: function() {

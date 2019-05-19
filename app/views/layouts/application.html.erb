@@ -111,6 +111,7 @@
 
      <li><%= link_to 'New Note', new_note_path %></li>
      <li><%= link_to 'Create Category', categories_path %></li>
+     <li><%= link_to 'New Map', new_map_path %></li>
      <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
      <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
 
@@ -149,6 +150,10 @@
 
 </div>
 
+<!-- Google Map の表示 -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
+    async defer></script>
 
 </body>
 </html>

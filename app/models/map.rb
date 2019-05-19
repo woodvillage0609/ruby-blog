@@ -7,5 +7,6 @@ class Map < ActiveRecord::Base
     after_validation :geocode
 
     belongs_to :user
+    has_many :reviews, dependent: :destroy
 
 end

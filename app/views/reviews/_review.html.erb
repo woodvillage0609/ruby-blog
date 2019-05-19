@@ -1,0 +1,40 @@
+<div class="comment-list" style="border-bottom:1px dotted #808080; width:100%;margin-bottom:5px;">
+
+
+<div class='star-rating' data-score=<%= review.rating %>></div>
+
+<table class="review">
+
+<tr>
+ <td style="width:20%;">
+ 	  <li style="font-size:18px;color:#000080;"><strong><%= review.name %></strong></li>
+ </td>
+
+ <td style="width:75%;">
+	  <li style="font-size:15px;padding-top:8px;"><%= simple_format(review.body) %> 
+    </li>
+ </td>
+ <td>
+  <% if user_signed_in? %>
+    <li style="text-align:right;"><%= link_to 'Destroy', [review.map, review],
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' } %></li>
+<% end %>
+ </td>
+
+</tr>
+
+</table>
+
+</div>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      half: true,
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

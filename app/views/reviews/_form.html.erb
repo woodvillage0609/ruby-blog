@@ -1,0 +1,30 @@
+<%= form_for([@map, @map.reviews.build]) do |f| %>
+  <p>コメントを書く</p>
+  <p>
+  	<%= f.text_area :body, class: "form-control", :style=>"width:100%; height:50px; border-radius:5px; border-color:#808080;" %>
+  </p>
+
+  <p>投稿者名：</p>
+  <p>
+  	<%= f.text_field :name, class: "form-control", :style=>"width:35%; border-color:#808080;"%>
+  </p>
+  <p>期待度合い：</p>
+  <p>
+    <%= f.hidden_field :rating, step:0.5 %>
+    <div id='star-rating'></div>
+  </p>
+
+  <br>
+  <p>
+	<%= f.submit "コメントする", class: "btn btn-primary", :style=>"background-color:#3b5998;" %>
+  </p>
+
+<% end %>
+
+<script>
+$('#star-rating').raty({
+  half: true,
+  path: '/assets/',
+  scoreName: 'review[rating]'
+});
+</script>
