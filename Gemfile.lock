@@ -801,7 +801,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     multi_json (1.11.2)
-    mysql2 (0.4.10)
+    mysql2 (0.5.3)
     nested_form (0.3.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -931,7 +931,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  mysql2 (~> 0.4.10)
+  mysql2 (~> 0.5.3)
   paperclip
   rails (~> 4.2, >= 4.2.10)
   rails_12factor (~> 0.0.3)
