@@ -4,8 +4,8 @@ ruby "2.6.3"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2', '>= 4.2.10'
 # Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.4.10'
-#gem 'mysql2', '0.4.10'
+gem 'mysql2', '~> 0.5.3'
+#gem 'mysql2', '~> 0.4.10'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0', '>= 5.0.7'
 # Use Uglifier as compressor for JavaScript assets

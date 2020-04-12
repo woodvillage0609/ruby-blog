@@ -43,14 +43,21 @@
   </script>
 
   <!-- ckeditorのcodesnippet用　highlight.jsの貼り付け -->
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
 
 </head>
 
 <body>
 
+<div class="container" style="width:100%;">
+
 <div class="row">
 
-<div class="col-md-12">
+<div class="col-md-12" style="padding:0px;">
 
 <div class="header">
 
@@ -130,7 +137,7 @@
 
 <div class="col-md-1 col-xs-0"></div>
 
-<div class="col-md-10 col-xs-12" style="background-color:white;">
+<div class="col-md-10 col-xs-12" style="background-color:white;padding:0px;">
 
 <!-- アラートダイアログに×ボタンをつける -->
 <% flash.each do |name, msg| %>
@@ -154,6 +161,8 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap"
     async defer></script>
+
+</div>
 
 </body>
 </html>
