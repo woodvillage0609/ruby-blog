@@ -1,29 +1,32 @@
-<h2 style="text-align:center;">Listing Maps</h2>
+<div class="maps-grid-container">
 
 <% @maps.each do |map| %>
 
-  <div class="maps_by_photo_list">
-
-    <div class="maps_by_photo_border">
+    <div class="maps_by_photo_sub item">
     
       <%=link_to image_tag(map.photo, {:style=>"width:100%;"}), map %>
 
-      <ul style="padding:5px;">
+      <div class="under_maps_by_photo">
 
-      <li><%= map.title%></li>
-      <li class='star-rating' data-score=<%= map.rating %>></li>
-     
+      <li><%= link_to simple_format(map.title), map_path(map), class: "white" %>
+      </li>
+
+      </div>
+
       <% if user_signed_in? %>
-      <li style="position:absolute;right:5px;bottom:5px;"><%= link_to 'Edit', edit_map_path(map) %> |
-      <%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      </ul>
+
+      <div class="map_edit white">
+
+      <li><%= link_to 'Edit', edit_map_path(map), class: "white" %> |
+      <%= link_to 'Destroy', map, method: :delete, data: { confirm: 'Are you sure?' }, class: "white" %>
+      </li>
+
+      </div>
       
       <% end %>
           
     </div>
 
-  </div>
-
   <% end %>
-  </tbody>
-</table>
+  
+</div>

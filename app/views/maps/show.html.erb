@@ -28,3 +28,14 @@
 </div>
 
 </div>
+
+<script>
+    $('.star-rating').raty({
+      half: true,
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

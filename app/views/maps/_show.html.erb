@@ -34,6 +34,10 @@
     <td><%= @map.floor %>階</td>
   </tr>
   <tr>
+    <td><li><strong>レーティング</strong></li></td>
+    <td><li class='star-rating' data-score=<%= @map.rating %>></li></td>
+  </tr>
+  <tr>
     <td><li><strong>詳細情報</strong></li></td>
     <td><%= link_to "詳細情報はこちら", @map.url, :target=>"_blank" %></td>
   </tr>
