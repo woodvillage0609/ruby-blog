@@ -24,7 +24,7 @@
 
           var markerIcon = {
 
-            url: 'https://cdn4.iconfinder.com/data/icons/real-estate-1-8/512/46-512.png',
+            url: 'https://image.flaticon.com/icons/svg/252/252106.svg',
             scaledSize: new google.maps.Size(40, 40),
             origin: new google.maps.Point(0, 0), 
             anchor: new google.maps.Point(20,45)
@@ -57,13 +57,3 @@
 
 <%= render 'map' %>
 
-<script>
-    $('.star-rating').raty({
-      half: true,
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
-</script>
