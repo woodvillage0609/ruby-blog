@@ -45,7 +45,7 @@ gem 'hirb', '~> 0.7.3'
 
 gem 'hirb-unicode', '~> 0.0.5'
 
-gem 'geocoder', '~> 1.5', '>= 1.5.1'
+gem 'geocoder', '~> 1.6'
 
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 
